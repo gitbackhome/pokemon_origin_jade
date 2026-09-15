@@ -976,6 +976,15 @@ NewBarkTown_Lab_Text_ElmDirections1:
 #endif
 
 NewBarkTown_Lab_Text_ElmDirections1_Register:
+#if GERMAN
+	.string "Mr. Pokémon wohnt ein Stück hinter\n"
+	.string "Kirschheim, der nächsten Stadt.\p"
+	.string "Es geht fast geradeaus dorthin, du\n"
+	.string "kannst ihn gar nicht verfehlen.\p"
+	.string "Aber für alle Fälle: hier ist meine\n"
+	.string "Nummer. Ruf mich an, wenn etwas\l"
+	.string "dazwischenkommt!$"
+#else
 	.string "MR. POKéMON lives a little bit\n"
 	.string "beyond CHERRYGROVE, the next\l"
 	.string "city over.\p"
@@ -984,10 +993,16 @@ NewBarkTown_Lab_Text_ElmDirections1_Register:
 	.string "But just in case, here's my\n"
 	.string "phone number. Call me if\l"
 	.string "anything comes up!$"
+#endif
 
 NewBarkTown_Lab_Text_RegisteredElm:
+#if GERMAN
+	.string "Prof. Lind wurde im Pokégear\n"
+	.string "gespeichert.$"
+#else
 	.string "Registered PROF.ELM\n"
 	.string "in the POKéGEAR.$"
+#endif
 
 
 NewBarkTown_Lab_Text_ElmLetYourMonBattle:
