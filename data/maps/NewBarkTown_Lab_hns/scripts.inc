@@ -269,15 +269,14 @@ NewBarkTown_Lab_EventScript_ChoseStarter::
 	@callnative EnableStaticRandomizer
 	hidemonpic
 	@ Erst sperren, dann geben: bricht das Geben ab, duerfen die anderen
-	@ beiden Baelle trotzdem nicht mehr genommen werden. Die Objekte 4, 5
-	@ und 6 sind die drei Baelle auf dem Tisch.
+	@ beiden Baelle trotzdem nicht mehr genommen werden. Vom Tisch
+	@ verschwindet nur der gewaehlte Ball - die anderen beiden bleiben
+	@ liegen, einer davon wird in der Diebstahlszene geklaut.
 	setflag FLAG_RECEIVED_JOHTO_STARTER
-	setflag FLAG_HIDE_CHIKORITABALL
-	setflag FLAG_HIDE_CYNDAQUILBALL
-	setflag FLAG_HIDE_TOTODILEBALL
-	removeobject 4
-	removeobject 5
-	removeobject 6
+	call_if_eq VAR_STARTER_MON, 0, NewBarkTown_Lab_EventScript_HideChikorita
+	call_if_eq VAR_STARTER_MON, 1, NewBarkTown_Lab_EventScript_HideCyndaquil
+	call_if_eq VAR_STARTER_MON, 2, NewBarkTown_Lab_EventScript_HideTotodile
+	removeobject VAR_LAST_TALKED
 	msgbox NewBarkTown_Lab_Text_ChoseStarter, MSGBOX_DEFAULT
 	call_if_eq VAR_STARTER_MON, 0, NewBarkTown_Lab_EventScript_GiveStarter_Chikorita
 	call_if_eq VAR_STARTER_MON, 1, NewBarkTown_Lab_EventScript_GiveStarter_Cyndaquil
