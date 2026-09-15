@@ -31,9 +31,26 @@ bool32 HasJohtoPermit(u32 index)
     return (VarGet(VAR_JOHTO_PERMITS) & (1 << index)) != 0;
 }
 
+// Anreisekorridor aus Kanto: Route 26, Route 27 und die Tohjo-Faelle.
+// Hier gelten die Befugnisse NICHT. Route 27 laesst sich nur mit dem Surfer
+// durchqueren, und die Befugnis dafuer vergibt Morty - vierter Orden, tief in
+// Johto. Mit Sperre kaeme man also gar nicht erst nach Neuborkia.
+// Auf dem Rueckweg zur Liga faellt die Ausnahme nicht auf: bis dahin sind
+// alle Befugnisse laengst vergeben.
+static bool32 IsJohtoArrivalCorridor(u32 mapSecId)
+{
+    return mapSecId == MAPSEC_ROUTE_26
+        || mapSecId == MAPSEC_ROUTE_27
+        || mapSecId == MAPSEC_TOHJO_FALLS;
+}
+
 bool32 JohtoPermitsApply(void)
 {
-    return IsJohtoMapsec(gMapHeader.regionMapSectionId);
+    u32 mapSecId = gMapHeader.regionMapSectionId;
+
+    if (IsJohtoArrivalCorridor(mapSecId))
+        return FALSE;
+    return IsJohtoMapsec(mapSecId);
 }
 
 // Special: Befugnisindex (0 - PERM_COUNT-1) in gSpecialVar_0x8004
