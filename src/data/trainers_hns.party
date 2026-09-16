@@ -7183,12 +7183,44 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Sand Attack
 - Quick Attack
 
+Spearow
+Level: 9
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Peck
+- Leer
+- Fury Attack
+- Aerial Ace
+
 Noctowl @ Sitrus Berry
-Level: 11
+Level: 9
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Tackle
 - Mud Slap
 - Peck
+
+Farfetchd
+Level: 10
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Peck
+- Fury Cutter
+- Aerial Ace
+- Swords Dance
+
+Xatu
+Level: 10
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Psychic
+- Confuse Ray
+- Night Shade
+- Aerial Ace
+
+Murkrow
+Level: 11
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Wing Attack
+- Astonish
+- Taunt
+- Aerial Ace
 
 === TRAINER_FALKNER_2_HNS ===
 Name: Falk
@@ -7276,6 +7308,14 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Supersonic
 - Reflect
 
+Spinarak
+Level: 15
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Poison Sting
+- String Shot
+- Night Shade
+- Scary Face
+
 Scyther @ Berry Juice
 Level: 16
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
@@ -7283,6 +7323,22 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Fury Cutter
 - U Turn 
 - Pursuit
+
+Ariados
+Level: 16
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Poison Sting
+- Night Shade
+- Fury Swipes
+- Agility
+
+Heracross
+Level: 16
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Horn Attack
+- Brick Break
+- Aerial Ace
+- Endure
 
 === TRAINER_BUGSY_2_HNS ===
 Name: Kai
@@ -7362,6 +7418,14 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Sweet Kiss
 - Metronome
 
+Aipom
+Level: 20
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Scratch
+- Sand Attack
+- Baton Pass
+- Fury Swipes
+
 Teddiursa
 Level: 20
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
@@ -7370,6 +7434,14 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Lick
 - Mud Slap
 
+Furret
+Level: 21
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Quick Attack
+- Headbutt
+- Defense Curl
+- Dig
+
 Miltank @ Sitrus Berry
 Level: 21
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
@@ -7377,6 +7449,14 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Attract
 - Stomp
 - Milk Drink
+
+Granbull
+Level: 21
+IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+- Bite
+- Headbutt
+- Scary Face
+- Take Down
 
 === TRAINER_WHITNEY_2_HNS ===
 Name: Bianka
@@ -7448,9 +7528,17 @@ AI: Basic Trainer
 Mugshot: Purple
 Items: Super Potion / Super Potion
 
+Gastly
+Level: 23
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Lick
+- Confuse Ray
+- Night Shade
+- Hypnosis
+
 Haunter
 Ability: Levitate
-Level: 24
+Level: 23
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Hypnosis
 - Nightmare
@@ -7458,7 +7546,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Night Shade
 
 Stantler
-Level: 23
+Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Swift
 - Hypnosis
@@ -7472,6 +7560,14 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Pain Split
 - Perish Song
 - Psywave
+
+Duskull
+Level: 25
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Astonish
+- Night Shade
+- Disable
+- Confuse Ray
 
 Gengar @ Sitrus Berry
 Ability: Levitate
@@ -7554,6 +7650,14 @@ AI: Basic Trainer
 Mugshot: Light Blue
 Items: Super Potion / Super Potion
 
+Swinub
+Level: 31
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Icy Wind
+- Mud Slap
+- Endure
+- Take Down
+
 Dewgong
 Level: 31
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
@@ -7561,6 +7665,14 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Aurora Beam
 - Rain Dance
 - Aqua Jet
+
+Delibird
+Level: 32
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Icy Wind
+- Aerial Ace
+- Quick Attack
+- Fury Attack
 
 Sneasel
 Level: 32
@@ -7571,7 +7683,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Avalanche
 
 Jynx
-Level: 31
+Level: 33
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Ice Punch
 - Psychic
@@ -7782,6 +7894,14 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rain Dance
 - Thunder
 
+Forretress
+Level: 36
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Rapid Spin
+- Take Down
+- Protect
+- Swift
+
 Scizor @ Focus Band
 Level: 36
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
@@ -7970,16 +8090,32 @@ AI: Basic Trainer
 Mugshot: Orange
 Items: Super Potion / Super Potion
 
+Machoke
+Level: 29
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Karate Chop
+- Seismic Toss
+- Foresight
+- Vital Throw
+
 Hitmontop
-Level: 30
+Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Triple Kick
 - Rolling Kick
 - Dig
 - Pursuit
 
+Hitmonchan
+Level: 30
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Mach Punch
+- Thunder Punch
+- Ice Punch
+- Fire Punch
+
 Primeape
-Level: 29
+Level: 30
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Low Kick
 - Karate Chop
@@ -7987,7 +8123,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rage
 
 Sudowoodo
-Level: 30
+Level: 31
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rock Slide
 - Wood Hammer
@@ -8182,6 +8318,14 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Flamethrower
 - Dragon Tail
 
+Dragonair
+Level: 43
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunder Wave
+- Thunderbolt
+- Flamethrower
+- Dragon Tail
+
 Gyarados @ Focus Band
 Level: 43
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
@@ -8191,7 +8335,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Ice Fang
 
 Lapras @ Chesto Berry
-Level: 43
+Level: 44
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Brine
 - Ice Beam
