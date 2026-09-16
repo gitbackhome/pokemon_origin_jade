@@ -33,6 +33,11 @@ NewBarkTown_OnTransition::
 	@ VAR_JOHTO_ARRIVAL_STATE und nicht an HnS' VAR_NEWBARK_TOWN_STATE - der
 	@ wird im Haus der Mutter gesetzt, das Origin Jade ueberspringt, und
 	@ steht je nach Spielstand auf irgendeinem Wert.
+	@ Nachtrag fuer Spielstaende, die den Laborbesuch schon hinter sich haben:
+	@ Lind stellt den Var erst seit Patch 0015 auf 1. Wer vorher bei ihm war,
+	@ saesse sonst dauerhaft in Neuborkia fest. Ab Laborzustand 3 hat das
+	@ Gespraech stattgefunden, dann ist der Weg frei.
+	call_if_eq VAR_JOHTO_ARRIVAL_STATE, 0, NewBarkTown_EventScript_CheckElmAlreadySeen
 	call_if_eq VAR_JOHTO_ARRIVAL_STATE, 0, NewBarkTown_EventScript_LassBlocksExit
 	call_if_ne VAR_JOHTO_ARRIVAL_STATE, 0, NewBarkTown_EventScript_LassInTown
 	goto_if_eq VAR_NEWBARK_TOWN_STATE, 2, NewBarkTown_Set_TalkToElm
@@ -61,9 +66,18 @@ NewBarkTown_EventScript_JohtoArrivalSetup::
 	setflag FLAG_REGISTER_RIVAL_POKENAV
 	return
 
+NewBarkTown_EventScript_CheckElmAlreadySeen::
+	goto_if_ge VAR_NEWBARKTOWN_LABSTATE, 3, NewBarkTown_EventScript_ReleaseExit
+	return
+
+NewBarkTown_EventScript_ReleaseExit::
+	setvar VAR_JOHTO_ARRIVAL_STATE, 1
+	return
+
 NewBarkTown_EventScript_LassBlocksExit::
-	@ Mitte des Ausgangs nach Route 29.
-	setobjectxyperm LOCALID_LASS, 0, 13
+	@ Neben dem Ausgang nach Route 29, die Absperrung machen die drei
+	@ Ausloeser bei 0,12 bis 0,14.
+	setobjectxyperm LOCALID_LASS, 0, 11
 	return
 
 NewBarkTown_EventScript_LassInTown::
