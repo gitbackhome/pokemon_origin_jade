@@ -359,6 +359,10 @@ NewBarkTown_Lab_EventScript_MrPokemon::
 	waitfanfare
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
 	msgbox NewBarkTown_Lab_Text_ElmDirections2, MSGBOX_DEFAULT
+	@ Origin Jade: Die VM-Befugnisse muessen einmal erklaert werden. Lind ist
+	@ die richtige Stelle - er steht gerade im Pokegear und kann daran
+	@ erinnern.
+	msgbox NewBarkTown_Lab_Text_ElmPermits, MSGBOX_DEFAULT
 	closemessage
 	goto_if_eq VAR_FACING, DIR_EAST, NewBarkTown_Lab_EventScript_MrPokemonMovementSafe
 	applymovement LOCALID_ELM, NewBarkTown_Lab_Movement_CheckEmailSlow
@@ -530,20 +534,12 @@ NewBarkTown_Lab_EventScript_ElmSSTicket::
 	end
 
 NewBarkTown_Lab_EventScript_TriggerAideGiveBalls::
-	lock
-	applymovement LOCALID_AIDE1, NewBarkTown_Lab_Movement_Aide1WalkToPlayer
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox NewBarkTown_Lab_Text_AideGiveBalls, MSGBOX_DEFAULT
-	closemessage
-	giveitem ITEM_POKE_BALL, 5
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	@ Origin Jade: Der Assistent lief nach dem Diebstahl auf den Spieler zu
+	@ und drueckte ihm fuenf Pokebaelle in die Hand - eine Anfaengerszene.
+	@ Wer als Champion aus Kanto kommt, hat den Beutel voll. Die Szene
+	@ entfaellt, nur der Fortschritt wird weitergestellt.
 	setflag FLAG_RECEIVED_FIRST_BALLS
 	setvar VAR_NEWBARKTOWN_LABSTATE, 6
-	applymovement LOCALID_AIDE1, NewBarkTown_Lab_Movement_Aide1LeavePlayer
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	release
 	end
 
 NewBarkTown_Lab_EventScript_Elm_Check_WhereIsEgg::
@@ -973,6 +969,32 @@ NewBarkTown_Lab_Text_ElmDirections1:
 	.string "But just in case, you have my\n"
 	.string "phone number. Call me if\l"
 	.string "anything comes up!$"
+#endif
+
+NewBarkTown_Lab_Text_ElmPermits:
+#if GERMAN
+	.string "Lind: Eines noch, bevor du losgehst.\p"
+	.string "In Johto entscheidet die Liga, wo VM-\n"
+	.string "Attacken eingesetzt werden duerfen.\l"
+	.string "Dafuer braucht es eine Befugnis.\p"
+	.string "Jeder Arenaleiter gibt dir eine davon\n"
+	.string "zusammen mit seinem Orden.\p"
+	.string "Dein Koennen nimmt dir niemand. Du\n"
+	.string "darfst es hier nur noch nicht ueberall\l"
+	.string "einsetzen.\p"
+	.string "Ruf mich an, wenn du nicht mehr weisst,\n"
+	.string "was dir noch fehlt.$"
+#else
+	.string "ELM: One more thing before you go.\p"
+	.string "In JOHTO, the LEAGUE decides where\n"
+	.string "HM moves may be used. That takes a\l"
+	.string "permit.\p"
+	.string "Every GYM LEADER hands you one along\n"
+	.string "with their BADGE.\p"
+	.string "Nobody can take your skill away. You\n"
+	.string "just can't use it everywhere yet.\p"
+	.string "Call me if you lose track of what\n"
+	.string "you're still missing.$"
 #endif
 
 NewBarkTown_Lab_Text_ElmDirections1_Register:

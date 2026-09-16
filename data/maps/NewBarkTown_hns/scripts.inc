@@ -39,6 +39,10 @@ NewBarkTown_OnTransition::
 @ obwohl er erst zur Diebstahlszene gehoert.
 NewBarkTown_EventScript_JohtoArrivalSetup::
 	setflag FLAG_JOHTO_ARRIVAL_DONE
+	@ Ortszustand: HnS setzt ihn im Haus der Mutter auf 2. Ohne ihn stimmen
+	@ die Zustaende der Neuborkia-NPCs nicht und niemand haelt den Spieler
+	@ auf, bevor er bei Lind war. Nur setzen, wenn er noch unberuehrt ist.
+	call_if_eq VAR_NEWBARK_TOWN_STATE, 0, NewBarkTown_EventScript_SetArrivalState
 	setflag FLAG_HIDE_LAB_POLICEMAN
 	setflag FLAG_VISITED_NEWBARK_TOWN
 	@ Pokegear und Anrufliste: in Kanto laengst vorhanden, die Johto-Seite
@@ -48,6 +52,10 @@ NewBarkTown_EventScript_JohtoArrivalSetup::
 	setflag FLAG_RECEIVED_POKENAV
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_REGISTER_RIVAL_POKENAV
+	return
+
+NewBarkTown_EventScript_SetArrivalState::
+	setvar VAR_NEWBARK_TOWN_STATE, 2
 	return
 
 NewBarkTown_Set_TalkToElm::
@@ -289,12 +297,19 @@ NewBarkTown_Text_FatManState3:
 NewBarkTown_Text_LassState2:
 #if GERMAN
 	.string "Du bist nicht von hier, oder?\p"
-	.string "Hier kennt jeder jeden. Fremde\n"
-	.string "fallen auf.$"
+	.string "Hier kennt jeder jeden. Fremde fallen\n"
+	.string "auf.\p"
+	.string "Wenn du weiterwillst, geh vorher zu\n"
+	.string "Professor Lind. Ohne ihn kommst du in\l"
+	.string "Johto nicht weit - egal, wie stark du\l"
+	.string "bist.$"
 #else
 	.string "You are not from here, are you?\p"
 	.string "Everyone knows everyone here.\n"
-	.string "Strangers stand out.$"
+	.string "Strangers stand out.\p"
+	.string "If you mean to go on, see PROF. ELM\n"
+	.string "first. Without him you won't get far\l"
+	.string "in JOHTO, however strong you are.$"
 #endif
 
 NewBarkTown_Text_LassState3:

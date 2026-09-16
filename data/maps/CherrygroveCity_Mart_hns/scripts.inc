@@ -6,7 +6,10 @@ Cherrygrove_Pokemart_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	goto_if_ge VAR_NEWBARK_TOWN_STATE, 5, Cherrygrove_Pokemart_EventScript_Clerk2
+	@ Origin Jade: Frueher war das Sortiment bis zur Pokeball-Lieferung auf
+	@ Trank und Gegengift beschraenkt, danach zeigte Clerk2 "pokemart 0" -
+	@ ein Nullzeiger, also gar kein Laden. Beides raus: ein Sortiment, von
+	@ Anfang an auf dem Stand eines Spielers, der Kanto hinter sich hat.
 	pokemart Cherrygrove_Pokemart_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -23,39 +26,35 @@ Cherrygrove_Pokemart_EventScript_Youngster::
 Cherrygrove_Pokemart_EventScript_Bugcatcher::
 	lock
 	faceplayer
-	goto_if_eq VAR_NEWBARK_TOWN_STATE, 5, Cherrygrove_Pokemart_EventScript_Bugcatcher2
 	msgbox Cherrygrove_Pokemart_Text_CooltrainerM, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
-Cherrygrove_Pokemart_EventScript_Bugcatcher2::
-	msgbox Cherrygrove_Pokemart_Text_CooltrainerM_PokeBallsInStock, MSGBOX_DEFAULT
-	closemessage
-	release
-	end
-
-Cherrygrove_Pokemart_EventScript_Clerk2::
-	pokemart 0
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
 	.align 3
 Cherrygrove_Pokemart_Pokemart:
-	.2byte ITEM_POTION
-	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_NONE
 	release
 	end
 
 Cherrygrove_Pokemart_Text_CooltrainerM:
 #if GERMAN
-	.string "Die Pokébälle sind leider ausverkauft.\n"
-	.string "Wann wohl die neue Lieferung kommt?$"
+	.string "Kleiner Laden, aber gut sortiert.\p"
+	.string "Die Lieferung kommt zweimal die Woche\n"
+	.string "aus Dukatia herauf.$"
 #else
-	.string "They're fresh out of POKé BALLS!\p"
-	.string "When will they get more of them?$"
+	.string "Small shop, but well stocked.\p"
+	.string "The delivery comes up from GOLDENROD\n"
+	.string "twice a week.$"
 #endif
 
 Cherrygrove_Pokemart_Text_CooltrainerM_PokeBallsInStock:
@@ -70,15 +69,13 @@ Cherrygrove_Pokemart_Text_CooltrainerM_PokeBallsInStock:
 
 Cherrygrove_Pokemart_Text_Youngster:
 #if GERMAN
-	.string "Die Käfer-Pokémon im hohen Gras\n"
-	.string "vergiften gern, wenn man sie\l"
-	.string "unterschätzt.\p"
-	.string "Hier deckt sich jeder mit Gegengift\n"
-	.string "ein, bevor er nach Norden geht.$"
+	.string "Von hier führt jeder Weg irgendwann\n"
+	.string "nach Norden.\p"
+	.string "Manche kommen zurück, manche nicht.\n"
+	.string "Die meisten bleiben einfach hängen.$"
 #else
-	.string "The BUG POKéMON in the tall grass\n"
-	.string "like to poison anyone who\l"
-	.string "underestimates them.\p"
-	.string "Everyone here stocks up on ANTIDOTE\n"
-	.string "before heading north.$"
+	.string "Every road from here leads north\n"
+	.string "sooner or later.\p"
+	.string "Some come back, some don't. Most just\n"
+	.string "end up staying somewhere.$"
 #endif
