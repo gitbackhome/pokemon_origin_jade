@@ -169,7 +169,11 @@ ReceptionGate_EventScript_PassJohto::
 
 ReceptionGate_EventScript_BlockMtSilver::
 	lock
-	goto_if_set FLAG_SYS_GAME_CLEAR, ReceptionGate_EventScript_PassMtSilver
+	@ Origin Jade: Nicht FLAG_SYS_GAME_CLEAR - das setzt schon Kantos
+	@ Ruhmeshalle, der Silberberg waere damit ab Ankunft in Johto offen und
+	@ Rot mit Level 77 bis 93 vor dem ersten Johto-Orden erreichbar. Er
+	@ oeffnet erst mit dem Sieg ueber Johtos Liga.
+	goto_if_set FLAG_IS_JOHTO_CHAMPION, ReceptionGate_EventScript_PassMtSilver
 	msgbox ReceptionGate_Text_MtSilverClosed, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight1
@@ -198,14 +202,18 @@ ReceptionGate_Text_JohtoClosed:
 ReceptionGate_Text_MtSilverClosed:
 #if GERMAN
 	.string "Der Weg zum Silberberg ist gesperrt.\p"
-	.string "Dort draussen hausen Pokémon, gegen\n"
+	.string "Dort draußen hausen Pokémon, gegen\n"
 	.string "die selbst die Top Vier alt aussehen.\p"
-	.string "Komm wieder, wenn du Champ bist.$"
+	.string "Kantos Orden zählen hier nicht. Komm\n"
+	.string "wieder, wenn du auch Johtos Liga\l"
+	.string "geschlagen hast.$"
 #else
 	.string "The road to MT.SILVER is closed.\p"
 	.string "The POKéMON out there would make\n"
 	.string "even the ELITE FOUR look tame.\p"
-	.string "Come back when you're CHAMPION.$"
+	.string "KANTO BADGES don't count here. Come\n"
+	.string "back when you've beaten JOHTO's\l"
+	.string "LEAGUE too.$"
 #endif
 
 ReceptionGate_EventScript_LeagueCheck::
