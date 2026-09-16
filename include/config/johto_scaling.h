@@ -14,6 +14,7 @@
 //
 // Kernregeln (mit Marc abgestimmt):
 //  - Anker  = hoechstes Level im Spielerteam, wie in Hoenn.
+//  - Routentrainer liegen bei Anker -3 bis +2, Bosse bei Anker +4.
 //  - Johto spannt sich ueber Level 45 bis 80: der Einstieg liegt
 //    knapp unter dem Kanto-Abschluss (Champion 50-52), die Liga
 //    endet bei 80 und uebergibt an Hoenn. Die Deckel der Stufen 1 bis 4
@@ -30,11 +31,15 @@
 
 #define JOHTO_LEVEL_SCALING          TRUE  // Hauptschalter
 
-#define JOHTO_SCALING_TRAINER_BELOW  5     // Trainerband: Anker - 5 ...
-#define JOHTO_SCALING_TRAINER_ABOVE  3     // ... bis Anker + 3
+// Enger als in Hoenn (-5/+3). Origin Jade schickt keinen Anfaenger durch
+// Johto, sondern einen Champion mit gewachsenem Team - da reicht ein
+// knapper Abstand, um Kaempfe interessant zu halten. Vier Level ueber dem
+// Spieler ist bereits anspruchsvoll, das bleibt den Bossen vorbehalten.
+#define JOHTO_SCALING_TRAINER_BELOW  3     // Trainerband: Anker - 3 ...
+#define JOHTO_SCALING_TRAINER_ABOVE  2     // ... bis Anker + 2
 #define JOHTO_SCALING_WILD_BELOW     10    // Wildband: Anker - 10 ...
 #define JOHTO_SCALING_WILD_ABOVE     4     // ... bis Anker - 4
-#define JOHTO_SCALING_BOSS_EXTRA     2     // Boss-Ass: Anker + 3 + 2
+#define JOHTO_SCALING_BOSS_EXTRA     2     // Boss-Ass: Anker + 2 + 2
 
 // Trainer, deren Originalteam bereits auf oder ueber diesem Level liegt,
 // sind bewusst gesetzte Superbosse und werden NICHT skaliert. In Johto
