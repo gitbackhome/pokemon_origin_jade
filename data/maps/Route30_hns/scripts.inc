@@ -6,7 +6,23 @@ Route30_hns_MapScripts::
 
 Route30_OnTransition:
 	callnative SetTimeBasedEncounters
+	@ Origin Jade: Das Duell der beiden Jungen mit ihren Pokemon haengt an
+	@ FLAG_MOM_VISITED - gesetzt wird das in HnS im Haus der Mutter, wenn sie
+	@ den Spieler nach dem Diebstahl verabschiedet. Diese Szene gibt es bei
+	@ uns nicht, das Haus gehoert jemand anderem. Ohne das Flag stehen die
+	@ vier ewig auf der Route und Joey wird nie zum Trainer.
+	@ Nach dem Diebstahl (Laborzustand 5) wird beides nachgetragen.
+	call_if_unset FLAG_MOM_VISITED, Route30_EventScript_SyncAfterTheft
 	end
+
+Route30_EventScript_SyncAfterTheft::
+	goto_if_ge VAR_NEWBARKTOWN_LABSTATE, 5, Route30_EventScript_EndDuel
+	return
+
+Route30_EventScript_EndDuel::
+	setflag FLAG_MOM_VISITED
+	clearflag FLAG_HIDE_ROUTE_30_NPCS
+	return
 
 Route30_OnFrame::
 	map_script_2 VAR_CHERRYGROVE_CITY_STATE, 2, Route30_EventScript_ElmCall_Trigger
