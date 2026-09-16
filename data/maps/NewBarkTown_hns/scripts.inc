@@ -60,12 +60,14 @@ NewBarkTown_EventScript_SetArrivalState::
 
 NewBarkTown_Set_TalkToElm::
 	clearflag FLAG_HIDE_SILVER_NEWBARKTOWN
-	setobjectxyperm LOCALID_LASS, 0, 11
+	@ Mitte des Ausgangs nach Route 29, damit sie sichtbar im Weg steht.
+	setobjectxyperm LOCALID_LASS, 0, 13
 	callnative SetTimeBasedEncounters
 	end
 
 NewBarkTown_Set_TalkToMom::
-	setobjectxyperm LOCALID_LASS, 0, 11
+	@ Mitte des Ausgangs nach Route 29, damit sie sichtbar im Weg steht.
+	setobjectxyperm LOCALID_LASS, 0, 13
 	callnative SetTimeBasedEncounters
 	end
 
@@ -296,20 +298,12 @@ NewBarkTown_Text_FatManState3:
 
 NewBarkTown_Text_LassState2:
 #if GERMAN
-	.string "Du bist nicht von hier, oder?\p"
-	.string "Hier kennt jeder jeden. Fremde fallen\n"
-	.string "auf.\p"
-	.string "Wenn du weiterwillst, geh vorher zu\n"
-	.string "Professor Lind. Ohne ihn kommst du in\l"
-	.string "Johto nicht weit - egal, wie stark du\l"
-	.string "bist.$"
+	.string "Hey, warte! Du kannst hier nicht durch,\n"
+	.string "bevor du mit Prof. Lind gesprochen\l"
+	.string "hast.$"
 #else
-	.string "You are not from here, are you?\p"
-	.string "Everyone knows everyone here.\n"
-	.string "Strangers stand out.\p"
-	.string "If you mean to go on, see PROF. ELM\n"
-	.string "first. Without him you won't get far\l"
-	.string "in JOHTO, however strong you are.$"
+	.string "Hey, wait! You can't go through here\n"
+	.string "before you've talked to PROF. ELM.$"
 #endif
 
 NewBarkTown_Text_LassState3:
