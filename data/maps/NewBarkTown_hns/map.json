@@ -209,27 +209,27 @@
       "x": 0,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_NEWBARK_TOWN_STATE",
-      "var_value": "2",
-      "script": "NewBarkTown_EventScript_LeaveTrigger"
+      "var": "VAR_JOHTO_ARRIVAL_STATE",
+      "var_value": "0",
+      "script": "NewBarkTown_EventScript_JohtoLeaveBlock"
     },
     {
       "type": "trigger",
       "x": 0,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_NEWBARK_TOWN_STATE",
-      "var_value": "2",
-      "script": "NewBarkTown_EventScript_LeaveTrigger"
+      "var": "VAR_JOHTO_ARRIVAL_STATE",
+      "var_value": "0",
+      "script": "NewBarkTown_EventScript_JohtoLeaveBlock"
     },
     {
       "type": "trigger",
       "x": 0,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_NEWBARK_TOWN_STATE",
-      "var_value": "2",
-      "script": "NewBarkTown_EventScript_LeaveTrigger"
+      "var": "VAR_JOHTO_ARRIVAL_STATE",
+      "var_value": "0",
+      "script": "NewBarkTown_EventScript_JohtoLeaveBlock"
     },
     {
       "type": "trigger",

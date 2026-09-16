@@ -28,6 +28,13 @@ NewBarkTown_Text_ElmName:
 
 NewBarkTown_OnTransition::
 	call_if_unset FLAG_JOHTO_ARRIVAL_DONE, NewBarkTown_EventScript_JohtoArrivalSetup
+	@ Standort des Maedchens: solange der Spieler nicht bei Lind war, steht
+	@ sie im Ausgang nach Route 29, danach wieder in der Stadt. Haengt an
+	@ VAR_JOHTO_ARRIVAL_STATE und nicht an HnS' VAR_NEWBARK_TOWN_STATE - der
+	@ wird im Haus der Mutter gesetzt, das Origin Jade ueberspringt, und
+	@ steht je nach Spielstand auf irgendeinem Wert.
+	call_if_eq VAR_JOHTO_ARRIVAL_STATE, 0, NewBarkTown_EventScript_LassBlocksExit
+	call_if_ne VAR_JOHTO_ARRIVAL_STATE, 0, NewBarkTown_EventScript_LassInTown
 	goto_if_eq VAR_NEWBARK_TOWN_STATE, 2, NewBarkTown_Set_TalkToElm
 	goto_if_eq VAR_NEWBARK_TOWN_STATE, 4, NewBarkTown_Set_TalkToMom
 	end
@@ -54,20 +61,44 @@ NewBarkTown_EventScript_JohtoArrivalSetup::
 	setflag FLAG_REGISTER_RIVAL_POKENAV
 	return
 
+NewBarkTown_EventScript_LassBlocksExit::
+	@ Mitte des Ausgangs nach Route 29.
+	setobjectxyperm LOCALID_LASS, 0, 13
+	return
+
+NewBarkTown_EventScript_LassInTown::
+	@ Ausgangsposition aus der Karte.
+	setobjectxyperm LOCALID_LASS, 9, 16
+	return
+
+@ Absperrung des Ausgangs. Ausgeloest von den drei Feldern bei 0,12 bis 0,14,
+@ solange VAR_JOHTO_ARRIVAL_STATE auf 0 steht. Lind stellt ihn auf 1, sobald
+@ er sich im Pokegear eingetragen hat.
+NewBarkTown_EventScript_JohtoLeaveBlock::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_LASS, Common_Movement_ExclamationMark
+	delay 55
+	waitmovement LOCALID_LASS
+	applymovement LOCALID_LASS, NewBarkTown_Movement_FaceDown
+	waitmovement 0
+	msgbox NewBarkTown_Text_LassState2, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerStepBack
+	waitmovement 0
+	release
+	end
+
 NewBarkTown_EventScript_SetArrivalState::
 	setvar VAR_NEWBARK_TOWN_STATE, 2
 	return
 
 NewBarkTown_Set_TalkToElm::
 	clearflag FLAG_HIDE_SILVER_NEWBARKTOWN
-	@ Mitte des Ausgangs nach Route 29, damit sie sichtbar im Weg steht.
-	setobjectxyperm LOCALID_LASS, 0, 13
 	callnative SetTimeBasedEncounters
 	end
 
 NewBarkTown_Set_TalkToMom::
-	@ Mitte des Ausgangs nach Route 29, damit sie sichtbar im Weg steht.
-	setobjectxyperm LOCALID_LASS, 0, 13
 	callnative SetTimeBasedEncounters
 	end
 

@@ -363,6 +363,8 @@ NewBarkTown_Lab_EventScript_MrPokemon::
 	@ die richtige Stelle - er steht gerade im Pokegear und kann daran
 	@ erinnern.
 	msgbox NewBarkTown_Lab_Text_ElmPermits, MSGBOX_DEFAULT
+	@ Ab hier laesst das Maedchen den Spieler aus Neuborkia hinaus.
+	setvar VAR_JOHTO_ARRIVAL_STATE, 1
 	closemessage
 	goto_if_eq VAR_FACING, DIR_EAST, NewBarkTown_Lab_EventScript_MrPokemonMovementSafe
 	applymovement LOCALID_ELM, NewBarkTown_Lab_Movement_CheckEmailSlow
