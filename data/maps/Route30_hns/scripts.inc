@@ -12,7 +12,11 @@ Route30_OnTransition:
 	@ uns nicht, das Haus gehoert jemand anderem. Ohne das Flag stehen die
 	@ vier ewig auf der Route und Joey wird nie zum Trainer.
 	@ Nach dem Diebstahl (Laborzustand 5) wird beides nachgetragen.
-	call_if_unset FLAG_MOM_VISITED, Route30_EventScript_SyncAfterTheft
+	@ Geprueft wird FLAG_HIDE_ROUTE_30_NPCS und nicht FLAG_MOM_VISITED: bei
+	@ einem neuen Spiel setzt new_game.inc FLAG_MOM_VISITED bereits mit, waehrend
+	@ FLAG_HIDE_ROUTE_30_NPCS gesetzt bleibt - Joey waere dann nie als Trainer
+	@ aufgetaucht.
+	call_if_set FLAG_HIDE_ROUTE_30_NPCS, Route30_EventScript_SyncAfterTheft
 	end
 
 Route30_EventScript_SyncAfterTheft::
