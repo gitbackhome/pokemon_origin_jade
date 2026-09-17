@@ -282,7 +282,7 @@ CherrygroveCity_Text_GuideGentIntro:
 	.string "Hallo! Dich habe ich hier noch nie\n"
 	.string "gesehen.\p"
 	.string "Ich zeige Neuankömmlingen gern die\n"
-	.string "Stadt. Kirschheim ist klein, aber sie\l"
+	.string "Stadt. Rosalia ist klein, aber sie\l"
 	.string "hat ihre Geschichten.\p"
 	.string "Hast du einen Moment?$"
 #else
@@ -334,7 +334,7 @@ CherrygroveCity_Text_GuideGentMart:
 CherrygroveCity_Text_GuideGentRoute30:
 #if GERMAN
 	.string "Dort geht es auf Route 30 und weiter\n"
-	.string "nach Violet City.\p"
+	.string "nach Viola City.\p"
 	.string "Wer nach Johto kommt, nimmt fast\n"
 	.string "immer diesen Weg.$"
 #else

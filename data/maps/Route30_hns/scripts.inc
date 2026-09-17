@@ -319,7 +319,7 @@ Route30_Text_MrPokemonsHouseSign:
 Route30_Text_TrainerTips:
 #if GERMAN
 	.string "Route 30\p"
-	.string "Nach Norden: Route 31 und Violet City.\n"
+	.string "Nach Norden: Route 31 und Viola City.\n"
 	.string "Nach Süden: Neuborkia.$"
 #else
 	.string "ROUTE 30\p"

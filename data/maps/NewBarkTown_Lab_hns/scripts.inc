@@ -1002,7 +1002,7 @@ NewBarkTown_Lab_Text_ElmPermits:
 NewBarkTown_Lab_Text_ElmDirections1_Register:
 #if GERMAN
 	.string "Mr. Pokémon wohnt ein Stück hinter\n"
-	.string "Kirschheim, der nächsten Stadt.\p"
+	.string "Rosalia City, der nächsten Stadt.\p"
 	.string "Es geht fast geradeaus dorthin, du\n"
 	.string "kannst ihn gar nicht verfehlen.\p"
 	.string "Aber für alle Fälle: hier ist meine\n"
