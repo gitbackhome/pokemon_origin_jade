@@ -38,14 +38,23 @@ CianwoodCity_EventScript_Flytrigger::
 	waitmovement LOCALID_CIANWOOD_CHUCKSWIFE
 	applymovement LOCALID_CIANWOOD_CHUCKSWIFE, CianwoodCity_Movement_ChucksWife
 	waitmovement 0
+	@ Origin Jade: Wer aus Kanto kommt, hat Fliegen laengst.
+	checkitem ITEM_HM_FLY
+	goto_if_eq VAR_RESULT, TRUE, CianwoodCity_EventScript_FlytriggerHasFly
 	msgbox CianwoodCity_Text_ChucksWifeGiveHM, MSGBOX_DEFAULT
 	giveitem ITEM_HM_FLY
 	msgbox CianwoodCity_Text_ChucksWifeFlySpeech, MSGBOX_DEFAULT
+CianwoodCity_EventScript_FlytriggerDone::
 	closemessage
 	setvar VAR_GETFLY, 2
 	goto_if_eq VAR_TRIGGER_ELM_ROCKET_CALL, 1, Mahoganytown_EventScript_RocketTrigger
 	release
 	end
+
+CianwoodCity_EventScript_FlytriggerHasFly::
+	msgbox CianwoodCity_Text_ChucksWifeHasFly, MSGBOX_DEFAULT
+	giveitem ITEM_SHARP_BEAK
+	goto CianwoodCity_EventScript_FlytriggerDone
 
 CianwoodCity_Movement_ChucksWife:
 	walk_left
@@ -471,4 +480,21 @@ CianwoodCity_Text_Engineer:
 	.string "This path is under construction.\n"
 	.string "We're getting the new SAFARI ZONE\l"
 	.string "up and running!$"
+#endif
+
+CianwoodCity_Text_ChucksWifeHasFly:
+#if GERMAN
+	.string "Warte doch! Ich wollte dir Fliegen\n"
+	.string "mitgeben, für den Rückweg übers Meer.\p"
+	.string "Du hast es. Natürlich hast du es.\p"
+	.string "Dann nimm wenigstens das hier. Es lag\n"
+	.string "in Chucks Trainingsschuppen und er\l"
+	.string "merkt es nicht.$"
+#else
+	.string "Wait! I meant to give you FLY, for the\n"
+	.string "way back across the sea.\p"
+	.string "You have it. Of course you have it.\p"
+	.string "Then take this at least. It was in\n"
+	.string "CHUCK's training shed and he won't\l"
+	.string "notice.$"
 #endif

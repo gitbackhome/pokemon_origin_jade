@@ -554,8 +554,10 @@ RocketHideout_B2F_EventScript_ElectrodeDone::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	delay 30
 	msgbox RocketHideout_B2F_Text_LanceElectrodeDone, MSGBOX_DEFAULT
-	giveitem ITEM_HM_WHIRLPOOL
-	msgbox RocketHideout_B2F_Text_LanceWhirlpool, MSGBOX_DEFAULT
+	@ Origin Jade: Wer aus Kanto kommt, hat den Strudel laengst.
+	checkitem ITEM_HM_WHIRLPOOL
+	call_if_eq VAR_RESULT, TRUE, RocketHideout_B2F_EventScript_LanceHasWhirlpool
+	call_if_eq VAR_RESULT, FALSE, RocketHideout_B2F_EventScript_LanceGivesWhirlpool
 	closemessage
 	turnobject LOCALID_ROCKETHIDEOUT2_LANCE, DIR_SOUTH
 	delay 20
@@ -600,6 +602,16 @@ RocketHideout_B2F_Movement_LanceMeetPlayerAfterElectrode:
 	walk_left
 	walk_left
 	step_end
+
+RocketHideout_B2F_EventScript_LanceGivesWhirlpool::
+	giveitem ITEM_HM_WHIRLPOOL
+	msgbox RocketHideout_B2F_Text_LanceWhirlpool, MSGBOX_DEFAULT
+	return
+
+RocketHideout_B2F_EventScript_LanceHasWhirlpool::
+	msgbox RocketHideout_B2F_Text_LanceHasWhirlpool, MSGBOX_DEFAULT
+	giveitem ITEM_KINGS_ROCK
+	return
 
 RocketHideout_B2F_Movement_LanceFinalExit:
 	walk_fast_down
@@ -1032,3 +1044,20 @@ RocketHideout_B2F_EventScript_Grunt16::
 	msgbox RocketHideout_B2F_Text_GruntM19After, MSGBOX_AUTOCLOSE
 	end
 
+
+RocketHideout_B2F_Text_LanceHasWhirlpool:
+#if GERMAN
+	.string "Den Strudel wollte ich dir geben.\p"
+	.string "Aber du hast ihn, und mir dämmert\n"
+	.string "gerade, woher.\p"
+	.string "Kanto. Du warst das.\p"
+	.string "Dann nimm das hier. Und sag niemandem,\n"
+	.string "dass ich dir Hilfe angeboten habe.$"
+#else
+	.string "I meant to hand you WHIRLPOOL.\p"
+	.string "But you have it, and it's just dawning\n"
+	.string "on me where from.\p"
+	.string "KANTO. That was you.\p"
+	.string "Take this, then. And tell no one I\n"
+	.string "offered you help.$"
+#endif

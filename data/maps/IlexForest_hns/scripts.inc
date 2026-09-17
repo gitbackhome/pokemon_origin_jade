@@ -189,8 +189,18 @@ IlexForest_EventScript_Trigger::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox IlexForest_Text_CharcoalMasterIntro, MSGBOX_DEFAULT
 	closemessage
+	@ Origin Jade: Wer aus Kanto kommt, hat den Zerschneider laengst.
+	checkitem ITEM_HM_CUT
+	goto_if_eq VAR_RESULT, TRUE, IlexForest_EventScript_HasCut
 	giveitem ITEM_HM_CUT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	goto IlexForest_EventScript_CutDone
+
+IlexForest_EventScript_HasCut::
+	msgbox IlexForest_Text_CharcoalMasterHasCut, MSGBOX_DEFAULT
+	giveitem ITEM_MIRACLE_SEED
+
+IlexForest_EventScript_CutDone::
 	msgbox IlexForest_Text_CharcoalMasterOutro, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_HM_CUT
 	setflag FLAG_HIDE_ILEX_FOREST_MASTER
@@ -914,4 +924,21 @@ IlexForest_Text_Kimono_Girl5:
 	.string "Ich gehe schon mal vor!$"
 #else
 	.string "See you.$"
+#endif
+
+IlexForest_Text_CharcoalMasterHasCut:
+#if GERMAN
+	.string "Den Zerschneider trägst du schon bei\n"
+	.string "dir. Natürlich.\p"
+	.string "Mein Lehrling hat ein halbes Jahr\n"
+	.string "gebraucht, bis der Baum fiel.\p"
+	.string "Dann nimm das hier. Der Wald gibt\n"
+	.string "gern, wenn man ihn nicht abholzt.$"
+#else
+	.string "You already carry CUT. Of course you\n"
+	.string "do.\p"
+	.string "My apprentice needed half a year\n"
+	.string "before that tree came down.\p"
+	.string "Then take this. The forest gives\n"
+	.string "freely, if you don't clear it.$"
 #endif

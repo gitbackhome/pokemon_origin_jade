@@ -41,11 +41,22 @@ OlivineCity_EventScript_SailorA::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_HM_STRENGTH, OlivineCity_EventScript_SailorA2
+	@ Origin Jade: Wer aus Kanto kommt, hat Staerke laengst.
+	checkitem ITEM_HM_STRENGTH
+	goto_if_eq VAR_RESULT, TRUE, OlivineCity_EventScript_SailorHasStrength
 	msgbox OlivineCity_Text_CafeSailorStrength, MSGBOX_DEFAULT
 	giveitem ITEM_HM_STRENGTH
 	setflag FLAG_RECEIVED_HM_STRENGTH
 OlivineCity_EventScript_SailorA2::
 	msgbox OlivineCity_Text_CafeSailorGotStrength, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+OlivineCity_EventScript_SailorHasStrength::
+	msgbox OlivineCity_Text_CafeSailorHasStrength, MSGBOX_DEFAULT
+	giveitem ITEM_PROTEIN
+	setflag FLAG_RECEIVED_HM_STRENGTH
 	closemessage
 	release
 	end
@@ -119,3 +130,19 @@ OlivineCity_Text_CafeSailor:
 	.string "feel stronger. I can't stop eating!$"
 #endif
 
+
+OlivineCity_Text_CafeSailorHasStrength:
+#if GERMAN
+	.string "Stärke? Die hast du schon.\p"
+	.string "Ich hab dreißig Jahre Kisten geschleppt\n"
+	.string "und du kommst hier rein und hast es\l"
+	.string "einfach.\p"
+	.string "Nimm das. Trink es nicht, gib es einem\n"
+	.string "deiner Pokémon.$"
+#else
+	.string "STRENGTH? You've got it already.\p"
+	.string "Thirty years I hauled crates, and you\n"
+	.string "walk in here having it all sorted.\p"
+	.string "Take this. Don't drink it - give it to\n"
+	.string "one of your POKéMON.$"
+#endif

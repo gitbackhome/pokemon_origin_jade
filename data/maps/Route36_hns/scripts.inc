@@ -17,11 +17,22 @@ Route36_EventScript_RockSmashGuy::
 	end
 Route36_EventScript_RockSmashGuy2::
 	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Route36_EventScript_RockSmashGuy3
+	@ Origin Jade: Wer aus Kanto kommt, hat die VM laengst.
+	checkitem ITEM_HM_ROCK_SMASH
+	goto_if_eq VAR_RESULT, TRUE, Route36_EventScript_RockSmashGuyHasHM
 	msgbox Route36_Text_RockSmashGuy2, MSGBOX_DEFAULT
 	giveitem ITEM_HM_ROCK_SMASH
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
 Route36_EventScript_RockSmashGuy3::
 	msgbox Route36_Text_RockSmashGuy3
+	closemessage
+	release
+	end
+
+Route36_EventScript_RockSmashGuyHasHM::
+	msgbox Route36_Text_RockSmashGuyHasHM, MSGBOX_DEFAULT
+	giveitem ITEM_HARD_STONE
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
 	closemessage
 	release
 	end
@@ -539,3 +550,21 @@ Route36_Text_AlanNoRoom:
 	.string "Hmm, your BAG is full.\p"
 	.string "Come back when you have room.$"
 #endif
+
+Route36_Text_RockSmashGuyHasHM:
+#if GERMAN
+	.string "Der Brocken lag hier, seit ich denken\n"
+	.string "kann. Und du räumst ihn weg, als wäre\l"
+	.string "er Kies.\p"
+	.string "Den Zertrümmerer wollte ich dir geben.\n"
+	.string "Brauchst du offenbar nicht.\p"
+	.string "Nimm den hier. Der hält, was er\n"
+	.string "verspricht.$"
+#else
+	.string "That rock sat here as long as I can\n"
+	.string "remember. You clear it like gravel.\p"
+	.string "I meant to give you ROCK SMASH. You\n"
+	.string "clearly don't need it.\p"
+	.string "Take this instead. It holds up.$"
+#endif
+

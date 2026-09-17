@@ -329,15 +329,27 @@ EcruteakCity_Theater_EventScript_SurfGuy::
 	end
 
 EcruteakCity_Theater_EventScript_SurfGuy_GiveSurf::
-	msgbox EcruteakCity_Theater_Text_SurfGuyGiveSurf, MSGBOX_DEFAULT
-	giveitem ITEM_HM_SURF
+	@ Origin Jade: Wer aus Kanto kommt, hat den Surfer laengst.
+	checkitem ITEM_HM_SURF
+	call_if_eq VAR_RESULT, TRUE, EcruteakCity_Theater_EventScript_SurfGuyHasSurf
+	call_if_eq VAR_RESULT, FALSE, EcruteakCity_Theater_EventScript_SurfGuyGivesSurf
 	setflag FLAG_RECEIVED_HM_SURF
-	msgbox EcruteakCity_Theater_Text_SurfGuyGaveSurf
 	closemessage
 	setflag FLAG_RECEIVED_HM_SURF
 	setvar VAR_ECRUTEAK_CITY_THEATER, 3
 	release
 	end
+
+EcruteakCity_Theater_EventScript_SurfGuyGivesSurf::
+	msgbox EcruteakCity_Theater_Text_SurfGuyGiveSurf, MSGBOX_DEFAULT
+	giveitem ITEM_HM_SURF
+	msgbox EcruteakCity_Theater_Text_SurfGuyGaveSurf
+	return
+
+EcruteakCity_Theater_EventScript_SurfGuyHasSurf::
+	msgbox EcruteakCity_Theater_Text_SurfGuyHasSurf, MSGBOX_DEFAULT
+	giveitem ITEM_MYSTIC_WATER
+	return
 
 EcruteakCity_Theater_EventScript_SurfGuyDuringRocket::
 	msgbox EcruteakCity_Theater_Text_SurfGuyRocket, MSGBOX_DEFAULT
@@ -350,10 +362,11 @@ EcruteakCity_Theater_EventScript_TriggerSurfGuy::
 	applymovement LOCALID_SURF_GUY, EcruteakCity_Theater_Movement_SurfGuy1
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	msgbox EcruteakCity_Theater_Text_SurfGuyGiveSurf, MSGBOX_DEFAULT
-	giveitem ITEM_HM_SURF
+	@ Origin Jade: Wer aus Kanto kommt, hat den Surfer laengst.
+	checkitem ITEM_HM_SURF
+	call_if_eq VAR_RESULT, TRUE, EcruteakCity_Theater_EventScript_SurfGuyHasSurf
+	call_if_eq VAR_RESULT, FALSE, EcruteakCity_Theater_EventScript_SurfGuyGivesSurf
 	setflag FLAG_RECEIVED_HM_SURF
-	msgbox EcruteakCity_Theater_Text_SurfGuyGaveSurf
 	closemessage
 	setflag FLAG_RECEIVED_HM_SURF
 	setvar VAR_ECRUTEAK_CITY_THEATER, 3
@@ -1385,3 +1398,22 @@ EcruteakCity_Theater_Text_KimonoGirlsBeforeBattle:
 	.string "when you are ready.$"
 #endif
 
+
+EcruteakCity_Theater_Text_SurfGuyHasSurf:
+#if GERMAN
+	.string "Den Surfer wolltest du sicher haben.\p"
+	.string "Du hast ihn. Schon lange, dem Blick\n"
+	.string "nach zu urteilen.\p"
+	.string "Dann etwas anderes: Das hier stammt\n"
+	.string "aus dem Brunnen unter dem Theater.\p"
+	.string "Es macht Wasser nicht nass. Es macht\n"
+	.string "es ernst.$"
+#else
+	.string "I suppose you came for SURF.\p"
+	.string "You have it. For a long while, by the\n"
+	.string "look of you.\p"
+	.string "Something else, then. This comes from\n"
+	.string "the well beneath the theater.\p"
+	.string "It doesn't make water wet. It makes it\n"
+	.string "mean business.$"
+#endif

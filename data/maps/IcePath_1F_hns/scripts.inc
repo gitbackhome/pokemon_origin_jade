@@ -14,7 +14,9 @@ IcePath_1F_EventScript_Item_Protein::
 	finditem ITEM_PROTEIN
 	end
 IcePath_1F_EventScript_Item_HM_Waterfall::
-	finditem ITEM_HM_WATERFALL
+	@ Origin Jade: Kaskade traegt der Spieler seit Kanto. Der Ball haelt
+	@ stattdessen etwas, das zum Eispfad passt.
+	finditem ITEM_NEVER_MELT_ICE
 	end
 
 IcePath_1F_EventScript_KimonoGirl::
