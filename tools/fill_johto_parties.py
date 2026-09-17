@@ -195,9 +195,15 @@ def main(stage_floor):
             return (-shared, -pool[sp])
 
         cands = [sp for sp in pool if sp not in have]
-        # Klassenerwartung geht vor Typbezug zum Team.
+        # Klassenerwartung geht vor allem anderen. Gibt der Wildbestand der
+        # Karte nichts Passendes her, wird lieber ein Pokemon des Trainers
+        # verdoppelt, als die Klasse zu brechen - der Wildbestand ist nur eine
+        # Grundorientierung, damit keine Endgame-Arten bei frueh sichtbaren
+        # Trainern auftauchen.
         if want:
             strict = [sp for sp in cands if types.get(sp, set()) & want]
+            if not strict:
+                strict = [sp for sp in sorted(have) if types.get(sp, set()) & want]
             if strict:
                 cands = strict
         cands.sort(key=rank)
