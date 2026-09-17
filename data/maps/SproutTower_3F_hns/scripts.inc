@@ -107,10 +107,25 @@ SproutTower_3F_EventScript_SageLi::
 	msgbox SproutTower_Text_SageLi_Seen, MSGBOX_DEFAULT
 	closemessage
 	trainerbattle_no_intro TRAINER_LI_HNS, SproutTower_Text_SageLi_Beaten
+	@ Origin Jade: Wer aus Kanto kommt, hat die VM laengst. Statt sie ein
+	@ zweites Mal zu ueberreichen, erkennt Li es an und gibt etwas anderes
+	@ mit - die Szene soll sich lohnen, auch wenn ihre Belohnung schon im
+	@ Beutel liegt.
+	checkitem ITEM_HM_FLASH
+	goto_if_eq VAR_RESULT, TRUE, SproutTower_3F_EventScript_SageLi_HasFlash
 	msgbox SproutTower_Text_SageLi_TakeFlash, MSGBOX_DEFAULT
 	giveitem ITEM_HM_FLASH
 	setflag FLAG_RECEIVED_HM_FLASH
 	msgbox SproutTower_Text_SageLi_FlashExplain, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SproutTower_3F_EventScript_SageLi_HasFlash::
+	msgbox SproutTower_Text_SageLi_HasFlash, MSGBOX_DEFAULT
+	giveitem ITEM_PP_UP
+	setflag FLAG_RECEIVED_HM_FLASH
+	msgbox SproutTower_Text_SageLi_HasFlashExplain, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
@@ -241,6 +256,40 @@ SproutTower_Text_SageLi_Beaten:
 	.string "Ah, sehr gut!$"
 #else
 	.string "Ah, excellent!$"
+#endif
+
+SproutTower_Text_SageLi_HasFlash:
+#if GERMAN
+	.string "Ich wollte dir Blitz überreichen.\p"
+	.string "Aber du trägst sie längst bei dir.\n"
+	.string "Natürlich tust du das.\p"
+	.string "Dann eben etwas, das du noch nicht\n"
+	.string "hast.$"
+#else
+	.string "I meant to hand you FLASH.\p"
+	.string "But you already carry it. Of course\n"
+	.string "you do.\p"
+	.string "Then take something you don't have\n"
+	.string "yet.$"
+#endif
+
+SproutTower_Text_SageLi_HasFlashExplain:
+#if GERMAN
+	.string "Dieser Turm lehrt nicht, was ein\n"
+	.string "Pokémon kann.\p"
+	.string "Er lehrt, wie weit es mit dem kommt,\n"
+	.string "was es schon kann.\p"
+	.string "In Johto zählt nicht, was du\n"
+	.string "mitbringst. Es zählt, was die Liga\l"
+	.string "dir zugesteht.$"
+#else
+	.string "This tower does not teach what a\n"
+	.string "POKéMON can do.\p"
+	.string "It teaches how far it gets with what\n"
+	.string "it already knows.\p"
+	.string "In JOHTO, what you bring counts for\n"
+	.string "little. What the LEAGUE grants you\l"
+	.string "counts for everything.$"
 #endif
 
 SproutTower_Text_SageLi_TakeFlash:
