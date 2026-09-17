@@ -24,6 +24,38 @@ BOSS_CLASSES = {'Leader Hns', 'Leader Kanto Hns', 'Elite Four Hns', 'Champion Hn
 # Klassen, die am Wasser stehen - fuer sie zaehlt der Wasserbestand.
 WATER_CLASSES = {'Fisherman Hns', 'Swimmer M Hns', 'Swimmer F Hns', 'Sailor Hns'}
 
+# Klassen mit klarer Erwartung an den Typ. Ein Kaefersammler bekommt Kaefer,
+# kein Iksbat, auch wenn sein Spinarak zufaellig ebenfalls Gift ist. Nur die
+# Klassen, bei denen die Erwartung eindeutig ist - fuer alle anderen bleibt es
+# beim Typbezug zum vorhandenen Team.
+CLASS_TYPES = {
+    'Bug Catcher Hns':   {'BUG'},
+    'Bird Keeper Hns':   {'FLYING'},
+    'Fisherman Hns':     {'WATER'},
+    'Swimmer M Hns':     {'WATER'},
+    'Swimmer F Hns':     {'WATER'},
+    'Sailor Hns':        {'WATER'},
+    'Firebreather Hns':  {'FIRE'},
+    'Hiker Hns':         {'ROCK', 'GROUND'},
+    'Black Belt Hns':    {'FIGHTING'},
+    'Battle Girl Hns':   {'FIGHTING'},
+    'Hex Maniac Hns':    {'GHOST', 'PSYCHIC'},
+    'Psychic M Hns':     {'PSYCHIC'},
+    'Psychic Hns':       {'PSYCHIC'},
+    'Dragon Tamer Hns':  {'DRAGON'},
+    'Skier Hns':         {'ICE'},
+    'Sage Hns':          {'GHOST', 'PSYCHIC', 'FLYING'},
+    'Kimono Girl Hns':   {'PSYCHIC', 'FIRE', 'WATER', 'ELECTRIC', 'GRASS'},
+    'Team Rocket Hns':   {'POISON', 'DARK', 'ELECTRIC'},
+    'Rocket Admin Hns':  {'POISON', 'DARK', 'ELECTRIC'},
+    'Juggler Hns':       {'PSYCHIC', 'ELECTRIC'},
+    'Pokemaniac Hns':    {'ROCK', 'GROUND', 'NORMAL'},
+    'Biker Hns':         {'POISON', 'FIRE'},
+    'Burglar Hns':       {'FIRE'},
+    'Officer Hns':       {'NORMAL', 'DARK'},
+    'Parasol Lady Hns':  {'WATER'},
+}
+
 
 def species_types():
     types = {}
@@ -156,11 +188,18 @@ def main(stage_floor):
             if not pool:
                 pool.update(pools.get(mid, {}).get('land' if bucket == 'water' else 'water', {}))
 
+        want = CLASS_TYPES.get(cls)
+
         def rank(sp):
             shared = len(types.get(sp, set()) & team_types)
             return (-shared, -pool[sp])
 
         cands = [sp for sp in pool if sp not in have]
+        # Klassenerwartung geht vor Typbezug zum Team.
+        if want:
+            strict = [sp for sp in cands if types.get(sp, set()) & want]
+            if strict:
+                cands = strict
         cands.sort(key=rank)
         # Gleichrangige durchrotieren, sonst bekommt jeder Youngster auf einer
         # Route dasselbe Pokemon. Der Versatz haengt am Trainernamen, ist also
