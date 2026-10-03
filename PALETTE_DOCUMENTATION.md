@@ -1,3 +1,9 @@
+# Pokémon follower palette notes
+
+The Pokemon have a normal_overworld.pal, this can be changed by exporting your image's palette using GIMP's palette export as txt. The values need to be brought in the right format.
+
+
+
 # Ash Palette Notes
 
 ## Why Running Was Miscolored
