@@ -490,6 +490,7 @@
 #define MUS_RG_TRAINER_TOWER        556 // MUS_RG_T_TOWER
 #define MUS_RG_SLOW_PALLET          557 // MUS_RG_SLOWMASARA
 #define MUS_RG_TEACHY_TV_MENU       558 // MUS_RG_TVNOIZE
+
 // HGSS Music
 #define HG_MUSIC_START               (MUS_RG_TEACHY_TV_MENU + 1)
 
@@ -684,8 +685,9 @@
 #define MUS_DP_HALL_OF_ORIGIN        (DP_MUSIC_START + 0x07)  // Hall of Origin
 #define MUS_DP_LAKE_CAVERNS          (DP_MUSIC_START + 0x08)  // Lake Caverns
 #define MUS_DP_LEGEND_APPEARS        (DP_MUSIC_START + 0x09)  // A Legend Appears!
-#define MUS_DP_STARK_MOUNTAIN        (DP_MUSIC_START + 0x0A)  // Stark Mountain
-#define DP_MUSIC_END                 MUS_DP_STARK_MOUNTAIN
+#define MUS_DP_STARK_MOUNTAIN       (DP_MUSIC_START + 0x0A)  // Stark Mountain
+#define POKEMON_OPENING_ANIMEZEN    (DP_MUSIC_START + 0x0B)  // Pokemon
+#define DP_MUSIC_END                POKEMON_OPENING_ANIMEZEN
 
 #define END_MUS                      DP_MUSIC_END
 

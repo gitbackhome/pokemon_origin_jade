@@ -1069,7 +1069,7 @@ gStdScripts_End::
 
 .global EventScript_PlayTestSong
 EventScript_PlayTestSong:
-    playbgm MUS_RG_VS_TRAINER, 0
+    playbgm POKEMON_OPENING_ANIMEZEN, 0 //MUS_HG_VS_TRAINER_KANTO, 0 //MUS_RG_VS_TRAINER
     release
     end
 

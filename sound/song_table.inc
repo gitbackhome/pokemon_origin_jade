@@ -756,6 +756,7 @@ gSongTable::
 	song mus_dp_lake_caverns, MUSIC_PLAYER_BGM, 0
 	song mus_dp_legend_appears, MUSIC_PLAYER_SE2, 2
 	song mus_dp_stark_mountain, MUSIC_PLAYER_BGM, 0
+	song pokemon_opening_animezen, MUSIC_PLAYER_BGM, 0
 
 	@ Phoneme songs (bard NPC)
 	song ph_trap_blend, MUSIC_PLAYER_SE2, 2
