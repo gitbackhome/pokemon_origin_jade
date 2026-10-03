@@ -11,6 +11,11 @@ $(OBJEVENTGFXDIR)/people/brendan/walking.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/brendan/running.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/red/running.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/people/red/running_hns.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/brendan/field_move.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
@@ -461,6 +466,36 @@ $(OBJEVENTGFXDIR)/misc/nurse_chansey_hns.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/people/gold/walking_hns.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/walking_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/running_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/field_move_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/surfing_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/mach_bike_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/acro_bike_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/fishing_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/watering_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/underwater_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/ash/decorating_ash.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 1 -mheight 2
 
 $(OBJEVENTGFXDIR)/people/gold/running_hns.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
@@ -5165,6 +5200,16 @@ $(POKEMONGFXDIR)/rotom/heat/overworld.4bpp: %.4bpp: %.png
 $(POKEMONGFXDIR)/rotom/wash/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+# HnS Ash native trainer art, sourced from the user's other-sprites folder.
+graphics/trainers/front_pics/ash_hns.4bpp: graphics/trainers/front_pics/ash_hns.png
+	$(GFX) "$<" "$@"
+
+graphics/trainers/palettes/ash_hns.gbapal: graphics/trainers/front_pics/ash_hns.png
+	$(GFX) "$<" "$@"
+
+graphics/object_events/palettes/ash_hns.gbapal: graphics/object_events/pics/people/ash/walking_ash.png
+	$(GFX) "$<" "$@"
+
 $(POKEMONGFXDIR)/rotom/frost/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
@@ -6781,3 +6826,4 @@ $(OBJEVENTGFXDIR)/pokemon/surfable/regional_clodsire.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/pokemon/surfable/regional_clodsire_shiny.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
