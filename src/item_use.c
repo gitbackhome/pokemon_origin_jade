@@ -368,6 +368,12 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
 }
+extern const u8 EventScript_PlayTestSong[];
+
+void ItemUse_MusicPlayer(u8 taskId)
+{
+    ScriptContext_SetupScript(EventScript_PlayTestSong);
+}
 
 static bool32 CanFish(void)
 {

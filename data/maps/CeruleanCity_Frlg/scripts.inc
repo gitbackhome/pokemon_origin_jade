@@ -759,3 +759,10 @@ CeruleanCity_Text_GymSign::
 	.string "The Tomboyish Mermaid!$"
 #endif
 
+EventScript_MusicGuy::
+    lock
+    faceplayer
+    giveitem ITEM_MUSIK
+    release
+    end
+

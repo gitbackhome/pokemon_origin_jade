@@ -1051,7 +1051,7 @@ enum __attribute__((packed)) Item
     ITEM_GLIMMORANITE = 873,
 
     ITEM_GB_PLAYER    = 874,
-
+    ITEM_MUSIK,
     // HnS Items
     ITEM_GS_BALL,
     ITEM_FERTILIZER,

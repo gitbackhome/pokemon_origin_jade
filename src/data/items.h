@@ -362,6 +362,8 @@ static const u8 sGenericMulchDesc[]   = _("A fertilizer that\n"
                                           "local soil.");
 #endif
 
+void ItemUse_MusicPlayer(u8 taskId);
+
 const struct ItemInfo gItemsInfo[] =
 {
     [ITEM_NONE] =
@@ -369,7 +371,7 @@ const struct ItemInfo gItemsInfo[] =
         .name = gQuestionMarksItemName,
         .price = 0,
         .description = sQuestionMarksDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_KEY_ITEMS,
         .sortType = ITEM_TYPE_UNCATEGORIZED,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -14198,7 +14200,23 @@ const struct ItemInfo gItemsInfo[] =
     },
 #endif
 
-
+    [ITEM_MUSIK] = {
+            .name = ITEM_NAME("Musik"),
+            .price = 0,
+            .importance = 1,
+            .iconPic = gItemIcon_OvalCharm,
+            .description = COMPOUND_STRING(
+            "Musik\n"
+            "einfach"),
+            .holdEffect = 0,
+            .holdEffectParam = 0,
+            .flingPower = 0,
+            .pocket = POCKET_KEY_ITEMS,
+            .type = ITEM_USE_FIELD,
+            .fieldUseFunc = ItemUse_MusicPlayer,
+            .battleUsage = 0,
+            .secondaryId = 0,
+        },
 // Charms
 
     [ITEM_OVAL_CHARM] =

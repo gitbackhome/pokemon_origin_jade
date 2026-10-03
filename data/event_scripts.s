@@ -1067,6 +1067,12 @@ gStdScripts_End::
 	.include "data/scripts/config.inc"
 	.include "data/scripts/debug.inc"
 
+.global EventScript_PlayTestSong
+EventScript_PlayTestSong:
+    playbgm MUS_RG_VS_TRAINER, 0
+    release
+    end
+
 EventScript_WhiteOut::
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 .if IS_HNS
