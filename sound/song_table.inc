@@ -1176,4 +1176,30 @@ gGBSSongTable:: @ "gbs_hg_" tracks are new tracks that were transcribed from HGS
 	@ ----------------------------------------------------------------------------------------
 
 
+
+    @ Manuelle RG Fallbacks fuer Kanto
+    song_gbs MUS_RG_PALLET, gbs_pallettown_Header, 0, 0
+    song_gbs MUS_RG_PEWTER, gbs_viridiancity_Header, 0, 0
+    song_gbs MUS_RG_FUCHSIA, gbs_hg_cerulean_Header, 0, 0
+    song_gbs MUS_RG_CELADON, gbs_celadoncity_Header, 0, 0
+    song_gbs MUS_RG_LAVENDER, gbs_lavendertown_Header, 0, 0
+    song_gbs MUS_RG_VERMILLION, gbs_vermilioncity_Header, 0, 0
+    song_gbs MUS_RG_CINNABAR, gbs_hg_cinnabar_Header, 0, 0
+    song_gbs MUS_RG_ROUTE1, gbs_route1_Header, 0, 0
+    song_gbs MUS_RG_ROUTE3, gbs_route3_Header, 0, 0
+    song_gbs MUS_RG_ROUTE11, gbs_route12_Header, 0, 0
+    song_gbs MUS_RG_ROUTE24, gbs_hg_route24_Header, 0, 0
+    song_gbs MUS_RG_POKE_CENTER, gbs_pokemoncenter_Header, 0, 0
+    song_gbs MUS_RG_GYM, gbs_gym_Header, 0, 0
+    song_gbs MUS_RG_VS_WILD, gbs_kantowildbattle_Header, 0, 0
+    song_gbs MUS_RG_VS_TRAINER, gbs_kantotrainerbattle_Header, 0, 0
+    song_gbs MUS_RG_VS_GYM_LEADER, gbs_kantogymbattle_Header, 0, 0
+    song_gbs MUS_RG_VICTORY_TRAINER, gbs_trainervictory_Header, 0, 0
+    song_gbs MUS_RG_VICTORY_WILD, gbs_wildpokemonvictory_Header, 0, 0
+    song_gbs MUS_RG_VICTORY_GYM_LEADER, gbs_gymleadervictory_Header, 0, 0
+    song_gbs MUS_RG_SURF, gbs_surf_Header, 0, 0
+    song_gbs MUS_RG_CYCLING, gbs_bicycle_Header, 0, 0
+
+    .4byte 0xFFFFFFFF
+    @ Auto-generierte RG Fallbacks
 	.4byte 0xFFFFFFFF
