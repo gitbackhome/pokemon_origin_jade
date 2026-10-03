@@ -9895,6 +9895,20 @@ enum TrainerPicID PlayerGenderToFrontTrainerPicId(enum Gender playerGender)
         return FacilityClassToPicIndex(IS_HNS ? FACILITY_CLASS_GOLD_HNS : IS_FRLG ? FACILITY_CLASS_RED : FACILITY_CLASS_BRENDAN);
 }
 
+enum TrainerPicID GetPlayerTrainerFrontPicId(void)
+{
+    if (IS_HNS && (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH))
+        return FacilityClassToPicIndex(FACILITY_CLASS_ASH_HNS);
+    return PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender);
+}
+
+enum TrainerPicID GetPlayerTrainerBackPicId(void)
+{
+    if (IS_HNS && (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH))
+        return TRAINER_PIC_BACK_ASH_HNS;
+    return gSaveBlock2Ptr->playerGender == FEMALE ? TRAINER_BACK_PIC_PLAYER_FEMALE : TRAINER_BACK_PIC_PLAYER_MALE;
+}
+
 void HandleSetPokedexFlag(enum NationalDexOrder nationalNum, u8 caseId, u32 personality)
 {
     u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;

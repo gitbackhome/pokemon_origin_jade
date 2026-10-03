@@ -585,6 +585,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GoldReflection_hns, OBJ_EVENT_PAL_TAG_GOLD_REFLECTION_HNS},
     {gObjectEventPal_Kris_hns, OBJ_EVENT_PAL_TAG_KRIS_HNS},
     {gObjectEventPal_KrisReflection_hns, OBJ_EVENT_PAL_TAG_KRIS_REFLECTION_HNS},
+    {gObjectEventPal_Ash_hns, OBJ_EVENT_PAL_TAG_ASH_HNS},
     {gObjectEventPal_AlolaOak_hns, OBJ_EVENT_PAL_TAG_ALOLA_OAK_HNS},
 #endif // IS_HNS
 #if OW_FOLLOWERS_POKEBALLS
@@ -667,12 +668,20 @@ static const u16 sReflectionPaletteTags_Kris_hns[] = {
     OBJ_EVENT_PAL_TAG_KRIS_REFLECTION_HNS,
 };
 
+static const u16 sReflectionPaletteTags_Ash_hns[] = {
+    OBJ_EVENT_PAL_TAG_ASH_HNS,
+    OBJ_EVENT_PAL_TAG_ASH_HNS,
+    OBJ_EVENT_PAL_TAG_ASH_HNS,
+    OBJ_EVENT_PAL_TAG_ASH_HNS,
+};
+
 static const struct PairedPalettes sPlayerReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_BRENDAN,           sReflectionPaletteTags_Brendan},
     {OBJ_EVENT_PAL_TAG_MAY,               sReflectionPaletteTags_May},
     {OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER, sReflectionPaletteTags_PlayerUnderwater},
     {OBJ_EVENT_PAL_TAG_GOLD_HNS,         sReflectionPaletteTags_Gold_hns},
     {OBJ_EVENT_PAL_TAG_KRIS_HNS,         sReflectionPaletteTags_Kris_hns},
+    {OBJ_EVENT_PAL_TAG_ASH_HNS,           sReflectionPaletteTags_Ash_hns},
     {OBJ_EVENT_PAL_TAG_NONE,              NULL},
 };
 
@@ -769,6 +778,7 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_RED_LEAF,         sReflectionPaletteTags_RedLeaf},
     {OBJ_EVENT_PAL_TAG_GOLD_HNS,        sReflectionPaletteTags_Gold_hns},
     {OBJ_EVENT_PAL_TAG_KRIS_HNS,        sReflectionPaletteTags_Kris_hns},
+    {OBJ_EVENT_PAL_TAG_ASH_HNS,          sReflectionPaletteTags_Ash_hns},
     {OBJ_EVENT_PAL_TAG_NONE,             NULL},
 };
 
@@ -3617,6 +3627,11 @@ u8 LoadObjectEventPaletteCopy(u16 originalTag, u16 copyTag)
 u8 LoadPlayerObjectEventPalette(enum Gender gender)
 {
     u16 paletteTag;
+#if IS_HNS
+    if (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH)
+        paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS;
+    else
+#endif
     switch (gender)
     {
     default:
@@ -4175,11 +4190,20 @@ void InitObjectEventPalettes(u8 reflectionType)
         PatchObjectPaletteRange(palTagSets[sCurrentReflectionType], PALSLOT_PLAYER, PALSLOT_NPC_4_REFLECTION + 1);
 #endif
     }
+#if IS_HNS
+    if (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH)
+        PatchObjectPalette(OBJ_EVENT_PAL_TAG_ASH_HNS, PALSLOT_PLAYER);
+#endif
 }
 
 u16 GetObjectPaletteTag(u8 palSlot)
 {
     u8 i;
+
+#if IS_HNS
+    if (palSlot == PALSLOT_PLAYER && (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH))
+        return OBJ_EVENT_PAL_TAG_ASH_HNS;
+#endif
 
     if (palSlot < PALSLOT_NPC_SPECIAL)
 #if IS_HNS

@@ -520,6 +520,8 @@ const u16 gTrainerPalette_KimonoGirlHns[] = INCBIN_U16("graphics/trainers/palett
 
 const u32 gTrainerFrontPic_KrisHns[] = INCBIN_U32("graphics/trainers/front_pics/kris_hns.4bpp.smol");
 const u16 gTrainerPalette_KrisHns[] = INCBIN_U16("graphics/trainers/palettes/kris_hns.gbapal");
+const u32 gTrainerFrontPic_AshHns[] = INCBIN_U32("graphics/trainers/front_pics/ash_hns.4bpp.smol");
+const u16 gTrainerPalette_AshHns[] = INCBIN_U16("graphics/trainers/palettes/ash_hns.gbapal");
 
 const u32 gTrainerFrontPic_LeaderBlaineHns[] = INCBIN_U32("graphics/trainers/front_pics/leader_blaine_hns.4bpp.smol");
 const u16 gTrainerPalette_LeaderBlaineHns[] = INCBIN_U16("graphics/trainers/palettes/leader_blaine_hns.gbapal");
@@ -645,6 +647,7 @@ const u8 gTrainerBackPic_OldMan[] = INCBIN_U8("graphics/trainers/back_pics/old_m
 // HnS Trainer Back Pics
 const u8 gTrainerBackPic_GoldHns[] = INCBIN_U8("graphics/trainers/back_pics/gold_hns.4bpp");
 const u8 gTrainerBackPic_KrisHns[] = INCBIN_U8("graphics/trainers/back_pics/kris_hns.4bpp");
+const u8 gTrainerBackPic_AshHns[] = INCBIN_U8("graphics/trainers/back_pics/ash_hns_0.4bpp", "graphics/trainers/back_pics/ash_hns_1.4bpp", "graphics/trainers/back_pics/ash_hns_2.4bpp");
 const u8 gTrainerBackPic_LanceHns[] = INCBIN_U8("graphics/trainers/back_pics/lance_hns.4bpp");
 const u8 gTrainerBackPic_SilverHns[] = INCBIN_U8("graphics/trainers/back_pics/silver_hns.4bpp");
 
@@ -655,6 +658,7 @@ const u16 gTrainerBackPicPalette_OldMan[] = INCBIN_U16("graphics/trainers/back_p
 // HnS Trainer Back Pic Palettes
 const u16 gTrainerBackPicPalette_GoldHns[] = INCBIN_U16("graphics/trainers/back_pics/gold_hns.gbapal");
 const u16 gTrainerBackPicPalette_KrisHns[] = INCBIN_U16("graphics/trainers/back_pics/kris_hns.gbapal");
+const u16 gTrainerBackPicPalette_AshHns[] = INCBIN_U16("graphics/trainers/back_pics/ash_hns.gbapal");
 const u16 gTrainerBackPicPalette_LanceHns[] = INCBIN_U16("graphics/trainers/back_pics/lance_hns.gbapal");
 const u16 gTrainerBackPicPalette_SilverHns[] = INCBIN_U16("graphics/trainers/back_pics/silver_hns.gbapal");
 
@@ -848,6 +852,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_FRONT_JUGGLER_HNS, gTrainerFrontPic_JugglerHns, gTrainerPalette_JugglerHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_KIMONO_GIRL_HNS, gTrainerFrontPic_KimonoGirlHns, gTrainerPalette_KimonoGirlHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_KRIS_HNS, gTrainerFrontPic_KrisHns, gTrainerPalette_KrisHns),
+    TRAINER_SPRITE(TRAINER_PIC_FRONT_ASH_HNS, gTrainerFrontPic_AshHns, gTrainerPalette_AshHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_LEADER_BLAINE_HNS, gTrainerFrontPic_LeaderBlaineHns, gTrainerPalette_LeaderBlaineHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_LEADER_BLUE_HNS, gTrainerFrontPic_LeaderBlueHns, gTrainerPalette_LeaderBlueHns),
     TRAINER_SPRITE(TRAINER_PIC_FRONT_LEADER_BROCK_HNS, gTrainerFrontPic_LeaderBrockHns, gTrainerPalette_LeaderBrockHns),
@@ -942,6 +947,33 @@ static const union AnimCmd *const sBackAnims_Hoenn[] =
     sAnimCmd_Point_HGSS,
 };
 
+static const union AnimCmd sAnimCmd_AshHns[] =
+{
+    ANIMCMD_FRAME(0, 24),
+    ANIMCMD_FRAME(1, 9),
+    ANIMCMD_FRAME(0, 24),
+    ANIMCMD_FRAME(0, 9),
+    ANIMCMD_FRAME(2, 50),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnimCmd_AshHnsPoint[] =
+{
+    ANIMCMD_FRAME(2, 9),
+    ANIMCMD_FRAME(0, 9),
+    ANIMCMD_FRAME(1, 24),
+    ANIMCMD_FRAME(1, 24),
+    ANIMCMD_FRAME(2, 50),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sBackAnims_AshHns[] =
+{
+    sAnim_GeneralFrame0,
+    sAnimCmd_AshHns,
+    sAnimCmd_AshHnsPoint,
+};
+
 static const union AnimCmd *const sBackAnims_Kanto[] =
 {
     sAnim_GeneralFrame0,
@@ -979,6 +1011,7 @@ const struct TrainerBacksprite gTrainerBacksprites[] =
     // HnS Trainer Back Sprites
     TRAINER_BACK_SPRITE(TRAINER_PIC_BACK_GOLD_HNS, 4, gTrainerBackPic_GoldHns, gTrainerBackPicPalette_GoldHns, sBackAnims_Hoenn),
     TRAINER_BACK_SPRITE(TRAINER_PIC_BACK_KRIS_HNS, 4, gTrainerBackPic_KrisHns, gTrainerBackPicPalette_KrisHns, sBackAnims_Hoenn),
+    TRAINER_BACK_SPRITE(TRAINER_PIC_BACK_ASH_HNS, 4, gTrainerBackPic_AshHns, gTrainerBackPicPalette_AshHns, sBackAnims_AshHns),
     TRAINER_BACK_SPRITE(TRAINER_PIC_BACK_LANCE_HNS, 4, gTrainerBackPic_LanceHns, gTrainerBackPicPalette_LanceHns, sBackAnims_Hoenn),
     TRAINER_BACK_SPRITE(TRAINER_PIC_BACK_SILVER_HNS, 4, gTrainerBackPic_SilverHns, gTrainerBackPicPalette_SilverHns, sBackAnims_Hoenn),
 

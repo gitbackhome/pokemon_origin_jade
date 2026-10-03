@@ -355,6 +355,8 @@ u16 PlayerGenderToFrontTrainerPicId_Debug(enum Gender gender, bool8 getClass)
 {
     if (getClass == TRUE)
     {
+        if (IS_HNS && (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH))
+            return gFacilityClassToPicIndex[FACILITY_CLASS_ASH_HNS];
         if (gender != MALE)
             return gFacilityClassToPicIndex[IS_HNS ? FACILITY_CLASS_KRIS_HNS : FACILITY_CLASS_MAY];
         else

@@ -788,6 +788,7 @@
 #define OBJ_EVENT_PAL_TAG_KRIS_HNS                0x119A
 #define OBJ_EVENT_PAL_TAG_KRIS_REFLECTION_HNS     0x119B
 #define OBJ_EVENT_PAL_TAG_ALOLA_OAK_HNS           0x119C
+#define OBJ_EVENT_PAL_TAG_ASH_HNS                 0x119D
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

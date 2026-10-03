@@ -904,6 +904,7 @@ const u32 gObjectEventPic_GoldUnderwater_hns[] = INCBIN_U32("graphics/object_eve
 const u32 gObjectEventPic_KrisNormalRunning_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/walking_hns.4bpp", "graphics/object_events/pics/people/kris/running_hns.4bpp");
 const u16 gObjectEventPal_Kris_hns[] = INCBIN_U16("graphics/object_events/palettes/kris_hns.gbapal");
 const u16 gObjectEventPal_KrisReflection_hns[] = INCBIN_U16("graphics/object_events/palettes/kris_reflection_hns.gbapal");
+const u16 gObjectEventPal_Ash_hns[] = INCBIN_U16("graphics/object_events/palettes/ash_hns.gbapal");
 const u32 gObjectEventPic_KrisFieldMove_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/field_move_hns.4bpp");
 const u32 gObjectEventPic_KrisSurfing_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/surfing_hns.4bpp");
 const u32 gObjectEventPic_KrisMachBike_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/mach_bike_hns.4bpp");

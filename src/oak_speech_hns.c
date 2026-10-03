@@ -203,15 +203,15 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 };
 
 static const struct MenuAction sMenuActions_Gender[] = {
-    {COMPOUND_STRING("Gold"), {NULL}},
     {COMPOUND_STRING("Ash"), {NULL}},
+    {COMPOUND_STRING("Gold"), {NULL}},
     {COMPOUND_STRING("Kris"), {NULL}}
 };
 
 enum HnsPlayerCharacter
 {
-    HNS_PLAYER_CHARACTER_GOLD,
     HNS_PLAYER_CHARACTER_ASH,
+    HNS_PLAYER_CHARACTER_GOLD,
     HNS_PLAYER_CHARACTER_KRIS,
 };
 
@@ -685,16 +685,16 @@ static void Task_NewGameHnsSpeech_WaitPressBeforeNameChoice(u8 taskId)
 
 static void NewGameHnsSpeech_SetDefaultPlayerName(u8 nameId)
 {
+    static const u8 sAshPresetName[] = COMPOUND_STRING("Ash");
     const u8 *name;
-    u8 i;
 
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH)
+        name = sAshPresetName;
+    else if (gSaveBlock2Ptr->playerGender == MALE)
         name = sMalePresetNames[nameId];
     else
         name = sFemalePresetNames[nameId];
-    for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        gSaveBlock2Ptr->playerName[i] = name[i];
-    gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
+    StringCopy(gSaveBlock2Ptr->playerName, name);
 }
 
 static void Task_NewGameHnsSpeech_StartNamingScreen(u8 taskId)
@@ -1088,7 +1088,7 @@ static void AddHnsSpeechObjects(u8 taskId)
     gSprites[krisSpriteId].invisible = TRUE;
     gSprites[krisSpriteId].oam.priority = 0;
     gTasks[taskId].tKrisSpriteId = krisSpriteId;
-    ashSpriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_ASH_NORMAL_HNS, SpriteCB_Null, 120, 60, 0);
+    ashSpriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_ASH_HNS), 120, 60, 0, NULL);
     gSprites[ashSpriteId].invisible = TRUE;
     gSprites[ashSpriteId].oam.priority = 0;
     gTasks[taskId].tAshSpriteId = ashSpriteId;

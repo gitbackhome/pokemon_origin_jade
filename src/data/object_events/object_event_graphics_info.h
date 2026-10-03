@@ -7811,7 +7811,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisDecorating_hns
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshNormal_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 16,
@@ -7829,7 +7829,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshNormal_hns = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshMachBike_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -7847,7 +7847,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshMachBike_hns = 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshAcroBike_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -7865,7 +7865,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshAcroBike_hns = 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshSurfing_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -7901,7 +7901,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshUnderwater_hns 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshFieldMove_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -7919,7 +7919,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshFieldMove_hns =
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshFishing_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -7937,7 +7937,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshFishing_hns = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshWatering_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -7955,7 +7955,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshWatering_hns = 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshDecorating_hns = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD_HNS,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH_HNS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 256,
     .width = 16,
