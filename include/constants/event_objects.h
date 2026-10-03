@@ -583,7 +583,16 @@
 #define OBJ_EVENT_GFX_SKIER_F_HNS               545
 #define OBJ_EVENT_GFX_SKIER_M_HNS               546
 #define OBJ_EVENT_GFX_ALOLA_OAK_HNS             547
-#define NUM_OBJ_EVENT_GFX                        548
+#define OBJ_EVENT_GFX_ASH_NORMAL_HNS             548
+#define OBJ_EVENT_GFX_ASH_MACH_BIKE_HNS          549
+#define OBJ_EVENT_GFX_ASH_ACRO_BIKE_HNS          550
+#define OBJ_EVENT_GFX_ASH_SURFING_HNS            551
+#define OBJ_EVENT_GFX_ASH_UNDERWATER_HNS         552
+#define OBJ_EVENT_GFX_ASH_FIELD_MOVE_HNS          553
+#define OBJ_EVENT_GFX_ASH_FISHING_HNS             554
+#define OBJ_EVENT_GFX_ASH_WATERING_HNS            555
+#define OBJ_EVENT_GFX_ASH_DECORATING_HNS          556
+#define NUM_OBJ_EVENT_GFX                          557
 
 
 // These are dynamic object gfx ids.

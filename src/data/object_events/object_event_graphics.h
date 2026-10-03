@@ -910,6 +910,15 @@ const u32 gObjectEventPic_KrisMachBike_hns[] = INCBIN_U32("graphics/object_event
 const u32 gObjectEventPic_KrisAcroBike_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/acro_bike_hns.4bpp");
 const u32 gObjectEventPic_KrisFishing_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/fishing_hns.4bpp");
 const u32 gObjectEventPic_KrisWatering_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/watering_hns.4bpp");
+const u32 gObjectEventPic_AshNormalRunning_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/walking_ash.4bpp", "graphics/object_events/pics/people/ash/running_ash.4bpp");
+const u32 gObjectEventPic_AshFieldMove_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/field_move_ash.4bpp");
+const u32 gObjectEventPic_AshSurfing_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/surfing_ash.4bpp");
+const u32 gObjectEventPic_AshMachBike_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/mach_bike_ash.4bpp");
+const u32 gObjectEventPic_AshAcroBike_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/acro_bike_ash.4bpp");
+const u32 gObjectEventPic_AshFishing_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/fishing_ash.4bpp");
+const u32 gObjectEventPic_AshWatering_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/watering_ash.4bpp");
+const u32 gObjectEventPic_AshDecorating_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/decorating_ash.4bpp");
+const u32 gObjectEventPic_AshUnderwater_hns[] = INCBIN_U32("graphics/object_events/pics/people/ash/underwater_ash.4bpp");
 const u32 gObjectEventPic_KrisDecorating_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/decorating_hns.4bpp");
 const u32 gObjectEventPic_KrisUnderwater_hns[] = INCBIN_U32("graphics/object_events/pics/people/kris/underwater_hns.4bpp");
 #endif // IS_HNS

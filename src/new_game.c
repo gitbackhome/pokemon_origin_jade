@@ -219,6 +219,9 @@ void NewGameInitData(void)
 #if IS_FRLG
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
 #endif
+#if IS_HNS
+    u8 playerCharacterFlag = gSaveBlock2Ptr->specialSaveWarpFlags & SAVE_FLAG_PLAYER_CHARACTER_ASH;
+#endif
     struct ChallengeSettings savedChallenge = gSaveBlock3Ptr->challengeSettings;
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
@@ -239,7 +242,11 @@ void NewGameInitData(void)
     SetDefaultChallengeSettings();
     gSaveBlock3Ptr->challengeSettings = savedChallenge;
     ClearAllMail();
+#if IS_HNS
+    gSaveBlock2Ptr->specialSaveWarpFlags = playerCharacterFlag;
+#else
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
+#endif
     gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();
     PlayTimeCounter_Reset();

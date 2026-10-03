@@ -552,6 +552,15 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisFishing
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisWatering_hns;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisDecorating_hns;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolaOak_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshNormal_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshMachBike_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshAcroBike_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshSurfing_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshUnderwater_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshFieldMove_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshFishing_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshWatering_hns;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AshDecorating_hns;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -1095,6 +1104,15 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KRIS_FISHING_HNS] =      &gObjectEventGraphicsInfo_KrisFishing_hns,
     [OBJ_EVENT_GFX_KRIS_WATERING_HNS] =     &gObjectEventGraphicsInfo_KrisWatering_hns,
     [OBJ_EVENT_GFX_KRIS_DECORATING_HNS] =   &gObjectEventGraphicsInfo_KrisDecorating_hns,
+    [OBJ_EVENT_GFX_ASH_NORMAL_HNS] =        &gObjectEventGraphicsInfo_AshNormal_hns,
+    [OBJ_EVENT_GFX_ASH_MACH_BIKE_HNS] =     &gObjectEventGraphicsInfo_AshMachBike_hns,
+    [OBJ_EVENT_GFX_ASH_ACRO_BIKE_HNS] =     &gObjectEventGraphicsInfo_AshAcroBike_hns,
+    [OBJ_EVENT_GFX_ASH_SURFING_HNS] =       &gObjectEventGraphicsInfo_AshSurfing_hns,
+    [OBJ_EVENT_GFX_ASH_UNDERWATER_HNS] =    &gObjectEventGraphicsInfo_AshUnderwater_hns,
+    [OBJ_EVENT_GFX_ASH_FIELD_MOVE_HNS] =    &gObjectEventGraphicsInfo_AshFieldMove_hns,
+    [OBJ_EVENT_GFX_ASH_FISHING_HNS] =       &gObjectEventGraphicsInfo_AshFishing_hns,
+    [OBJ_EVENT_GFX_ASH_WATERING_HNS] =      &gObjectEventGraphicsInfo_AshWatering_hns,
+    [OBJ_EVENT_GFX_ASH_DECORATING_HNS] =    &gObjectEventGraphicsInfo_AshDecorating_hns,
 #endif // IS_HNS
 };
 

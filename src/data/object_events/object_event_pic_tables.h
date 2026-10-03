@@ -4479,6 +4479,69 @@ static const struct SpriteFrameImage sPicTable_NurseChansey_hns[] = {
 };
 
 // HnS protagonist pic tables
+static const struct SpriteFrameImage sPicTable_AshNormal_hns[] = {
+    overworld_ascending_frames(gObjectEventPic_AshNormalRunning_hns, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_AshMachBike_hns[] = {
+    overworld_ascending_frames(gObjectEventPic_AshMachBike_hns, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_AshAcroBike_hns[] = {
+    overworld_ascending_frames(gObjectEventPic_AshAcroBike_hns, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_AshSurfing_hns[] = {
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 4),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 4),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 4),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 3),
+    overworld_frame(gObjectEventPic_AshSurfing_hns, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_AshUnderwater_hns[] = {
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AshUnderwater_hns, 4, 4, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_AshFieldMove_hns[] = {
+    overworld_ascending_frames(gObjectEventPic_AshFieldMove_hns, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_AshFishing_hns[] = {
+    overworld_ascending_frames(gObjectEventPic_AshFishing_hns, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_AshWatering_hns[] = {
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 4),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 3),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 3),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 5),
+    overworld_frame(gObjectEventPic_AshWatering_hns, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_AshDecorating_hns[] = {
+    obj_frame_tiles(gObjectEventPic_AshDecorating_hns),
+};
+
 static const struct SpriteFrameImage sPicTable_GoldNormal_hns[] = {
     overworld_ascending_frames(gObjectEventPic_GoldNormalRunning_hns, 2, 4),
 };

@@ -208,6 +208,8 @@ enum Gender
     GENDER_COUNT,
 };
 
+#define SAVE_FLAG_PLAYER_CHARACTER_ASH (1 << 6)
+
 #define NUM_BARD_SONG_WORDS    6
 #define NUM_STORYTELLER_TALES  4
 #define NUM_TRADER_ITEMS       4
