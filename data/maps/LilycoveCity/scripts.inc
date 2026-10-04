@@ -1219,3 +1219,43 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "I mean, we are totally happy!$"
 #endif
 
+
+LilycoveCity_EventScript_WarpNPC::
+    lock
+    faceplayer
+    gettime
+    compare VAR_0x8000, 6
+    goto_if_lt LilycoveCity_EventScript_WrongTime
+    compare VAR_0x8000, 12
+    goto_if_ge LilycoveCity_EventScript_WrongTime
+    
+    msgbox LilycoveCity_Text_WantToWarp, MSGBOX_YESNO
+    compare VAR_RESULT, YES
+    goto_if_eq LilycoveCity_EventScript_DoWarp
+    msgbox LilycoveCity_Text_DeclinedWarp, MSGBOX_DEFAULT
+    release
+    end
+
+LilycoveCity_EventScript_WrongTime::
+    msgbox LilycoveCity_Text_WrongTime, MSGBOX_DEFAULT
+    release
+    end
+
+LilycoveCity_EventScript_DoWarp::
+    msgbox LilycoveCity_Text_AcceptWarp, MSGBOX_DEFAULT
+    closemessage
+    warp MAP_CERULEAN_CITY, 34, 8
+    waitstate
+    release
+    end
+LilycoveCity_Text_WrongTime:
+    .string "Ahoi, ich reise immer vormittags nach Kanto ab.\nWenn du willst, nehme ich dich mit.$"
+
+LilycoveCity_Text_WantToWarp:
+    .string "Ahoi, du kommst gerade rechtzeitig. Ich\nfahre jetzt nach Kanto ab. Willst du mit?$"
+
+LilycoveCity_Text_AcceptWarp:
+    .string "Dann fahren wir ab!$"
+
+LilycoveCity_Text_DeclinedWarp:
+    .string "Vielleicht nächstes Mal.$$"

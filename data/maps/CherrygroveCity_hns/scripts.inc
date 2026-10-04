@@ -714,3 +714,43 @@ CherryGroveCity_Movement_Silver_Leave2:
 	walk_fast_left
 	walk_fast_left
 	step_end
+
+CherryGroveCity_EventScript_WarpNPC::
+    lock
+    faceplayer
+    gettime
+    compare VAR_0x8000, 6
+    goto_if_lt CherryGroveCity_EventScript_WrongTime
+    compare VAR_0x8000, 12
+    goto_if_ge CherryGroveCity_EventScript_WrongTime
+    
+    msgbox CherryGroveCity_Text_WantToWarp, MSGBOX_YESNO
+    compare VAR_RESULT, YES
+    goto_if_eq CherryGroveCity_EventScript_DoWarp
+    msgbox CherryGroveCity_Text_DeclinedWarp, MSGBOX_DEFAULT
+    release
+    end
+
+CherryGroveCity_EventScript_WrongTime::
+    msgbox CherryGroveCity_Text_WrongTime, MSGBOX_DEFAULT
+    release
+    end
+
+CherryGroveCity_EventScript_DoWarp::
+    msgbox CherryGroveCity_Text_AcceptWarp, MSGBOX_DEFAULT
+    closemessage
+    warp MAP_CERULEAN_CITY, 34, 8
+    waitstate
+    release
+    end
+CherryGroveCity_Text_WrongTime:
+    .string "Ahoi, ich reise immer vormittags nach Kanto ab.\nWenn du willst, nehme ich dich mit.$"
+
+CherryGroveCity_Text_WantToWarp:
+    .string "Ahoi, du kommst gerade rechtzeitig. Ich\nfahre jetzt nach Kanto ab. Willst du mit?$"
+
+CherryGroveCity_Text_AcceptWarp:
+    .string "Dann fahren wir ab!$"
+
+CherryGroveCity_Text_DeclinedWarp:
+    .string "Vielleicht nächstes Mal.$$"

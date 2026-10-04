@@ -766,3 +766,87 @@ EventScript_MusicGuy::
     release
     end
 
+
+CeruleanCity_EventScript_WarpNPC::
+    lock
+    faceplayer
+    gettime
+    compare VAR_0x8000, 6
+    goto_if_lt CeruleanCity_EventScript_WrongTime
+    compare VAR_0x8000, 12
+    goto_if_ge CeruleanCity_EventScript_WrongTime
+    
+    msgbox CeruleanCity_Text_WantToWarp, MSGBOX_YESNO
+    compare VAR_RESULT, YES
+    goto_if_eq CeruleanCity_EventScript_DoWarp
+    msgbox CeruleanCity_Text_DeclinedWarp, MSGBOX_DEFAULT
+    release
+    end
+
+CeruleanCity_EventScript_WrongTime::
+    msgbox CeruleanCity_Text_WrongTime, MSGBOX_DEFAULT
+    release
+    end
+
+CeruleanCity_EventScript_DoWarp::
+    msgbox CeruleanCity_Text_AcceptWarp, MSGBOX_DEFAULT
+    closemessage
+    warp MAP_LILYCOVE_CITY_HARBOR, 9, 11
+    waitstate
+    release
+    end
+CeruleanCity_Text_WrongTime:
+    .string "Ahoi, ich fahre am vormittag nach Hoenn.\nWenn du willst, nehme ich dich mit.$"
+
+CeruleanCity_Text_WantToWarp:
+    .string "Ahoi, du kommst genau zur Abfahrtszeit.\nWir fahren nach Hoenn. Willst du mit?$"
+
+CeruleanCity_Text_AcceptWarp:
+    .string "Dann fahren wir ab!$"
+
+CeruleanCity_Text_DeclinedWarp:
+    .string "Vielleicht nächstes Mal.$$"
+
+
+
+
+
+CeruleanCity_EventScript_WarpJohtoNPC::
+    lock
+    faceplayer
+    gettime
+    compare VAR_0x8000, 12
+    goto_if_lt CeruleanCity_EventScript_WrongTime_Johto
+    compare VAR_0x8000, 14
+    goto_if_ge CeruleanCity_EventScript_WrongTime_Johto
+    
+    msgbox CeruleanCity_Text_WantToWarpJohto, MSGBOX_YESNO
+    compare VAR_RESULT, YES
+    goto_if_eq CeruleanCity_EventScript_DoWarpJohto
+    msgbox CeruleanCity_Text_DeclinedWarpJohto, MSGBOX_DEFAULT
+    release
+    end
+
+CeruleanCity_EventScript_WrongTime_Johto::
+    msgbox CeruleanCity_Text_WrongTime_Johto, MSGBOX_DEFAULT
+    release
+    end
+
+CeruleanCity_EventScript_DoWarpJohto::
+    msgbox CeruleanCity_Text_AcceptWarpJohto, MSGBOX_DEFAULT
+    closemessage
+    warp MAP_CHERRYGROVE_CITY_HNS, 24, 17
+    waitstate
+    release
+    end
+CeruleanCity_Text_WrongTime_Johto:
+    .string "Ahoi, wir liefern den Fisch und nehmen\nmittags Passagiere mit nach Johto.$"
+
+CeruleanCity_Text_WantToWarpJohto:
+    .string "Ahoi, du kommst genau rechtzeitig. Wir\nfahren nach Johto. Willst du mit?$"
+
+CeruleanCity_Text_AcceptWarpJohto:
+    .string "Dann, fahren wir ab!$"
+
+CeruleanCity_Text_DeclinedWarpJohto:
+    .string "Vielleicht nächstes Mal..$$"
