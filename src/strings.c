@@ -68,9 +68,9 @@ const u8 gText_ExpandedPlaceholder_Red[] = _("Rot");
 const u8 gText_ExpandedPlaceholder_Red[] = _("RED");
 #endif
 #if GERMAN
-const u8 gText_ExpandedPlaceholder_Green[] = _("Grün");
+const u8 gText_ExpandedPlaceholder_Green[] = _("Gary");
 #else
-const u8 gText_ExpandedPlaceholder_Green[] = _("GREEN");
+const u8 gText_ExpandedPlaceholder_Green[] = _("GARY");
 #endif
 #if GERMAN
 const u8 gText_ExpandedPlaceholder_Silver[] = _("Silber");
