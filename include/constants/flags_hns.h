@@ -3155,6 +3155,7 @@
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_3                         0
 #define FLAG_TWO_ISLAND_SHOP_INTRODUCED                         0
 #define FLAG_UNLOCKED_ROCKET_WAREHOUSE                          0
+// These are not unused. The 0 at the end shows that they are deactivated on purpose because taken.
 #define FLAG_UNUSED_0x022                                       0
 #define FLAG_UNUSED_0x023                                       0
 #define FLAG_UNUSED_0x024                                       0

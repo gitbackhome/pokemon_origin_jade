@@ -178,7 +178,15 @@ PalletTown_EventScript_OakTriggerRight::
 	goto PalletTown_EventScript_OakTrigger
 	end
 
+
+
 PalletTown_EventScript_OakTrigger::
+	goto PalletTown_EventScript_PikachuStart
+
+	@ Normaler Start
+	lockall
+	textcolor NPC_TEXT_COLOR_MALE
+	famechecker FAMECHECKER_OAK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	famechecker FAMECHECKER_OAK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	textcolor NPC_TEXT_COLOR_MALE
 	delay 30
@@ -218,6 +226,90 @@ PalletTown_EventScript_OakTrigger::
 	waitstate
 	releaseall
 	end
+
+
+PalletTown_EventScript_PikachuStart::
+    famechecker FAMECHECKER_OAK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+    textcolor NPC_TEXT_COLOR_MALE
+    delay 30
+    playbgm MUS_RG_OAK, 0
+    message PalletTown_Text_OakDontGoOut
+    waitmessage
+    delay 85
+    closemessage
+    applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+    waitmovement 0
+    playse SE_PIN
+    applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+    waitmovement 0
+    applymovement 8, PalletTown_Movement_PikachuRunIn
+    delay 30
+    
+    addobject LOCALID_PALLET_PROF_OAK
+    call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_OakEnterLeft
+    call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_OakEnterRight
+    delay 30
+    
+    playmoncry SPECIES_PIKACHU, 0
+    applymovement 8, Common_Movement_ExclamationMark
+    waitmovement 0
+    waitmoncry
+    delay 20
+    
+    applymovement LOCALID_PALLET_PROF_OAK, Common_Movement_WalkInPlaceFasterUp
+    waitmovement 0
+    
+    playse SE_BALL_TRAY_ENTER
+    delay 15
+
+    @setwildbattle SPECIES_PIKACHU, 5, ITEM_LIGHT_BALL
+    @dowildbattle
+    @waitstate
+
+    removeobject 8
+    playse SE_RG_BALL_CLICK
+    waitse
+    delay 30
+    
+    msgbox PalletTown_Text_OakCaughtPikachu, MSGBOX_DEFAULT
+    closemessage
+    
+    delay 30
+    call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_OakLeadPlayerToLabLeft
+    call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_OakLeadPlayerToLabRight
+    opendoor 16, 13
+    waitdooranim
+    applymovement LOCALID_PALLET_PROF_OAK, PalletTown_Movement_OakEnterLab
+    applymovement LOCALID_PLAYER, PalletTown_Movement_PlayerEnterLab
+    waitmovement 0
+    closedoor 16, 13
+    waitdooranim
+    
+    setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1
+    clearflag FLAG_HIDE_OAK_IN_HIS_LAB
+    setvar VAR_MAP_SCENE_PALLET_TOWN_OAK, 1
+    setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
+    setflag FLAG_DONT_TRANSITION_MUSIC
+    warp MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB, 6, 12
+    waitstate
+    releaseall
+    end
+
+PalletTown_Movement_PikachuRunIn:
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    step_end
+
+PalletTown_Text_OakCaughtPikachu::
+	.string "Eich: Puh, das war knapp!\n"
+	.string "Ein wildes PIKACHU hat dich attackiert.\p"
+	.string "Ich habe es schnell gefangen.\n"
+	.string "Es ist gefährlich ohne \neigenes Pokemon!\p"
+	.string "Komm mit mir ins Labor!$"
+
 
 PalletTown_EventScript_OakEnterLeft::
 	applymovement LOCALID_PALLET_PROF_OAK, PalletTown_Movement_OakEnterLeft

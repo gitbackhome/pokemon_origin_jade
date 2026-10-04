@@ -30,6 +30,7 @@ Route22_EventScript_EarlyRival::
 	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_EarlyRivalApproachBottom
 	delay 6
 	msgbox Route22_Text_EarlyRivalIntro
+	call_if_eq VAR_STARTER_MON, 3, Route22_EventScript_EarlyRivalEevee
 	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_EarlyRivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_EarlyRivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_EarlyRivalCharmander
@@ -188,6 +189,7 @@ Route22_EventScript_LateRival::
 	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_LateRivalApproachBottom
 	msgbox Route22_Text_LateRivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_ROUTE22_RIVAL
+	call_if_eq VAR_STARTER_MON, 3, Route22_EventScript_LateRivalEevee
 	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_LateRivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_LateRivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_LateRivalCharmander
@@ -409,3 +411,11 @@ Route22_Movement_RivalExitTop::
 	walk_down
 	walk_down
 	step_end
+
+Route22_EventScript_EarlyRivalEevee::
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_EEVEE, RIVAL_BATTLE_TUTORIAL, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
+	return
+
+Route22_EventScript_LateRivalEevee::
+	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_EEVEE, Route22_Text_LateRivalDefeat
+	return

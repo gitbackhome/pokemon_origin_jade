@@ -521,7 +521,7 @@
 #define MUS_HG_CERULEAN              (HG_MUSIC_START + 0x18)  // Cerulean City
 #define MUS_HG_LAVENDER              (HG_MUSIC_START + 0x19)  // Lavender Town
 #define MUS_HG_CELADON               (HG_MUSIC_START + 0x1A)  // Celadon City
-#define MUS_HG_PALLET                (HG_MUSIC_START + 0x1B)  // Pallet Town
+#define MUS_HG_PALLET                512//shift to original Kanto //(HG_MUSIC_START + 0x1B)  // Pallet Town
 #define MUS_HG_CINNABAR              (HG_MUSIC_START + 0x1C)  // Cinnabar Island
 #define MUS_HG_ROUTE1                (HG_MUSIC_START + 0x1D)  // Route 1
 #define MUS_HG_ROUTE3                (HG_MUSIC_START + 0x1E)  // Route 3
@@ -589,9 +589,9 @@
 #define MUS_HG_VS_ENTEI              (HG_MUSIC_START + 0x5C)  // Battle! (Entei)
 #define MUS_HG_VS_RAIKOU             (HG_MUSIC_START + 0x5D)  // Battle! (Raikou)
 #define MUS_HG_VS_CHAMPION           (HG_MUSIC_START + 0x5E)  // Battle! (Champion)
-#define MUS_HG_VS_WILD_KANTO         (HG_MUSIC_START + 0x5F)  // Battle! (Wild Pokémon - Kanto Version)
-#define MUS_HG_VS_TRAINER_KANTO      (HG_MUSIC_START + 0x60)  // Battle! (Trainer Battle - Kanto Version)
-#define MUS_HG_VS_GYM_LEADER_KANTO   (HG_MUSIC_START + 0x61)  // Battle! (Gym Leader - Kanto Version)
+#define MUS_HG_VS_WILD_KANTO         510// shift to original Kanto//(HG_MUSIC_START + 0x5F)  // Battle! (Wild Pokémon - Kanto Version)
+#define MUS_HG_VS_TRAINER_KANTO      509 // shift to original Kanto //(HG_MUSIC_START + 0x60)  // Battle! (Trainer Battle - Kanto Version)
+#define MUS_HG_VS_GYM_LEADER_KANTO   508// shift to original Kanto //(HG_MUSIC_START + 0x61)  // Battle! (Gym Leader - Kanto Version)
 #define MUS_HG_VICTORY_TRAINER       (HG_MUSIC_START + 0x62)  // Victory! (Trainer Battle)
 #define MUS_HG_VICTORY_WILD          (HG_MUSIC_START + 0x63)  // Victory! (Wild Pokémon)
 #define MUS_HG_CAUGHT                (HG_MUSIC_START + 0x64)  // Victory! (Wild Pokémon) (No intro)

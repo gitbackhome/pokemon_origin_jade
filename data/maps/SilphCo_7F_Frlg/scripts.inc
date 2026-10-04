@@ -42,6 +42,7 @@ SilphCo_7F_EventScript_RivalScene::
 	call_if_eq VAR_TEMP_1, 1, SilphCo_7F_EventScript_RivalApproachBottom
 	msgbox SilphCo_7F_Text_RivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_SILPH_CO_RIVAL
+	call_if_eq VAR_STARTER_MON, 3, SilphCo_7F_EventScript_RivalEevee
 	call_if_eq VAR_STARTER_MON, 2, SilphCo_7F_EventScript_RivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, SilphCo_7F_EventScript_RivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, SilphCo_7F_EventScript_RivalCharmander
@@ -526,3 +527,7 @@ SilphCo_7F_Text_FloorSign::
 	.string "7F$"
 #endif
 
+
+SilphCo_7F_EventScript_RivalEevee::
+	trainerbattle_earlyrival TRAINER_RIVAL_SILPH_EEVEE, RIVAL_BATTLE_TUTORIAL, SilphCo_7F_Text_RivalDefeat, Text_RivalVictory
+	return

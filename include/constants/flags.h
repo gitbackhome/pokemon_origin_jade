@@ -56,7 +56,7 @@
 #include "constants/flags_hns.h"
 
 #else
-
+// This roject compiles to HNS, so these are not necessarily unused.
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag

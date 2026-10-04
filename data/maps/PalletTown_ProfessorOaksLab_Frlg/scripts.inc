@@ -197,6 +197,7 @@ PalletTown_ProfessorOaksLab_Movement_OakBringDexesToDeskSouth::
 	step_end
 
 PalletTown_ProfessorOaksLab_ChooseStarterScene::
+	goto PalletTown_ProfessorOaksLab_ChooseStarterScene_Pikachu
 	lockall
 	textcolor NPC_TEXT_COLOR_MALE
 	applymovement LOCALID_OAKS_LAB_PROF_OAK, PalletTown_ProfessorOaksLab_Movement_OakEnter
@@ -225,6 +226,73 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2
 	releaseall
 	end
+
+PalletTown_ProfessorOaksLab_ChooseStarterScene_Pikachu::
+	lockall
+    setflag FLAG_HIDE_BULBASAUR_BALL
+    setflag FLAG_HIDE_CHARMANDER_BALL
+	textcolor NPC_TEXT_COLOR_MALE
+	applymovement LOCALID_OAKS_LAB_PROF_OAK, PalletTown_ProfessorOaksLab_Movement_OakEnter
+	waitmovement 0
+	removeobject LOCALID_OAKS_LAB_PROF_OAK
+	setobjectxyperm LOCALID_OAKS_LAB_PROF_OAK, 6, 3
+	setobjectmovementtype LOCALID_OAKS_LAB_PROF_OAK, MOVEMENT_TYPE_FACE_DOWN
+	clearflag FLAG_HIDE_OAK_IN_HIS_LAB
+	applymovement LOCALID_PLAYER, PalletTown_ProfessorOaksLab_Movement_PlayerEnter
+	waitmovement 0
+	applymovement LOCALID_OAKS_LAB_RIVAL, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	clearflag FLAG_DONT_TRANSITION_MUSIC
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	msgbox PalletTown_ProfessorOaksLab_Text_RivalFedUpWithWaiting
+	closemessage
+	delay 60
+	msgbox PalletTown_ProfessorOaksLab_Text_OakThisEeveeIsForPlayer
+	closemessage
+	delay 30
+	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact
+	waitmovement 0
+	msgbox PalletTown_ProfessorOaksLab_Text_RivalNoFairImTakingIt
+	closemessage
+	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalStealsEevee
+	waitmovement 0
+    setflag FLAG_HIDE_SQUIRTLE_BALL
+	removeobject 6
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+	message PalletTown_ProfessorOaksLab_Text_RivalReceivedEevee
+	waitmessage
+	waitfanfare
+	textcolor NPC_TEXT_COLOR_MALE
+	applymovement LOCALID_OAKS_LAB_PROF_OAK, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	msgbox PalletTown_ProfessorOaksLab_Text_OakBaffledTakePikachu
+	setvar VAR_STARTER_MON, 3
+	givemon SPECIES_PIKACHU, 5, ITEM_LIGHT_BALL
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+	message PalletTown_ProfessorOaksLab_Text_PlayerReceivedPikachu
+	waitmessage
+	waitfanfare
+	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_PALLET_LADY_NOT_BLOCKING_SIGN
+	setflag FLAG_HIDE_PALLET_HOUSE_DAISY
+	clearflag FLAG_HIDE_RIVALS_HOUSE_DAISY
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3
+	releaseall
+	end
+
+PalletTown_ProfessorOaksLab_Movement_RivalStealsEevee::
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
 
 PalletTown_ProfessorOaksLab_Movement_OakEnter::
 	walk_up
@@ -294,13 +362,13 @@ PalletTown_ProfessorOaksLab_EventScript_RivalBattle::
 	waitmovement 0
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalLetsCheckOutMons
 	closemessage
-	applymovement LOCALID_OAKS_LAB_PROF_OAK, Common_Movement_FaceDown
+    applymovement LOCALID_OAKS_LAB_PROF_OAK, Common_Movement_FaceDown
 	waitmovement 0
 	goto_if_eq VAR_STARTER_MON, 0, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleCharmander
 	goto_if_eq VAR_STARTER_MON, 1, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleBulbasaur
 	goto_if_eq VAR_STARTER_MON, 2, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleSquirtle
+	goto_if_eq VAR_STARTER_MON, 3, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEevee
 	end
-
 @ The scripts for the rival approaching the player for battle are a bit bloated because
 @ both the player and rival can be in 3 different positions, so theres 9 different approaches
 @ NOTE: Names below refer to the Rival's mon (e.g. for RivalBattleSquirtle, player has Charmander)
@@ -463,6 +531,36 @@ PalletTown_ProfessorOaksLab_Movement_RivalApproachForBattleBulbasaurRight::
 	walk_down
 	walk_down
 	step_end
+
+PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEevee::
+	goto_if_eq VAR_TEMP_2, 1, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEeveeLeft
+	goto_if_eq VAR_TEMP_2, 2, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEeveeMid
+	goto_if_eq VAR_TEMP_2, 3, PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEeveeRight
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEeveeLeft::
+	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalApproachForBattleSquirtleLeft
+	waitmovement 0
+	goto PalletTown_ProfessorOaksLab_EventScript_RivalBattleEevee
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEeveeMid::
+	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalApproachForBattleSquirtleMid
+	waitmovement 0
+	goto PalletTown_ProfessorOaksLab_EventScript_RivalBattleEevee
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_RivalApproachForBattleEeveeRight::
+	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalApproachForBattleSquirtleRight
+	waitmovement 0
+	goto PalletTown_ProfessorOaksLab_EventScript_RivalBattleEevee
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_RivalBattleEevee::
+	@ Stelle sicher, dass TRAINER_RIVAL_OAKS_LAB_EEVEE in deinen Trainer-Daten existiert!
+	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_EEVEE, RIVAL_BATTLE_TUTORIAL, PalletTown_ProfessorOaksLab_Text_RivalDefeat, Text_RivalVictory
+	goto PalletTown_ProfessorOaksLab_EventScript_EndRivalBattle
+	end
 
 PalletTown_ProfessorOaksLab_EventScript_EndRivalBattle::
 	special HealPlayerParty
@@ -2205,3 +2303,68 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
 	.string "Anyways, I'm outta here!$"
 #endif
 
+
+
+PalletTown_ProfessorOaksLab_Text_OakThisEeveeIsForPlayer::
+#if GERMAN
+	.string "Prof. Eich: {RIVAL}?\n"
+	.string "Habe ein wenig Geduld!\p"
+	.string "Ich habe ein Pokémon für {PLAYER}\n"
+	.string "auf dem Tisch vorbereitet.$"
+#else
+	.string "OAK: {RIVAL}?\n"
+	.string "Be patient!\p"
+	.string "I have prepared a POKéMON on the\n"
+	.string "desk for {PLAYER}.$"
+#endif
+
+PalletTown_ProfessorOaksLab_Text_RivalNoFairImTakingIt::
+#if GERMAN
+	.string "{RIVAL}: Was!? Das ist unfair!\n"
+	.string "Ich will auch ein Pokémon!\p"
+	.string "Pah! Ich nehme einfach das hier!$"
+#else
+	.string "{RIVAL}: What!? No fair!\n"
+	.string "I want a POKéMON too!\p"
+	.string "Hmph! I'll just take this one!$"
+#endif
+
+PalletTown_ProfessorOaksLab_Text_RivalReceivedEevee::
+#if GERMAN
+	.string "{RIVAL} reißt sich das EVOLI\n"
+	.string "unter den Nagel!$"
+#else
+	.string "{RIVAL} snatched the EEVEE!$"
+#endif
+
+PalletTown_ProfessorOaksLab_Text_OakBaffledTakePikachu::
+#if GERMAN
+	.string "Prof. Eich: {RIVAL}! Halt!\n"
+	.string "Das war für {PLAYER} gedacht!\p"
+	.string "...\n"
+	.string "Da kann man wohl nichts machen.\p"
+	.string "{PLAYER}, komm her.\p"
+	.string "Ich habe vorhin im hohen Gras ein\n"
+	.string "wildes PIKACHU gefangen.\p"
+	.string "Es ist noch etwas widerspenstig,\n"
+	.string "aber du kannst es haben!$"
+#else
+	.string "OAK: {RIVAL}! Wait!\n"
+	.string "That was meant for {PLAYER}!\p"
+	.string "...\n"
+	.string "Well, I suppose it can't be helped.\p"
+	.string "{PLAYER}, come here.\p"
+	.string "I caught a wild PIKACHU in the tall\n"
+	.string "grass earlier today.\p"
+	.string "It's a bit feisty, but you can\n"
+	.string "have it!$"
+#endif
+
+PalletTown_ProfessorOaksLab_Text_PlayerReceivedPikachu::
+#if GERMAN
+	.string "{PLAYER} erhält PIKACHU\n"
+	.string "von Prof. Eich!$"
+#else
+	.string "{PLAYER} received PIKACHU\n"
+	.string "from PROF. OAK!$"
+#endif

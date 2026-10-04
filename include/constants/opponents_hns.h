@@ -642,7 +642,7 @@
 // Trainerflags (TRAINER_FLAGS_START + id) laegen in SYS_FLAGS und werden in
 // GetFlagPointer nach SaveBlock3 (flagsHnsRematchTiers) umgeleitet - so
 // bleiben alle bestehenden Flag- und Trainer-IDs unveraendert.
-#define HNS_REMATCH_TIERS_START               2324  // = FRLG_TRAINERS_END + 1
+#define HNS_REMATCH_TIERS_START               2333  // = FRLG_TRAINERS_END + 1
 #define TRAINER_IRWIN_2_HNS                   (HNS_REMATCH_TIERS_START + 0)
 #define TRAINER_IRWIN_3_HNS                   (HNS_REMATCH_TIERS_START + 1)
 #define TRAINER_IRWIN_4_HNS                   (HNS_REMATCH_TIERS_START + 2)

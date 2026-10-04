@@ -28,6 +28,7 @@ PokemonTower_2F_EventScript_Rival::
 	waitmovement 0
 	msgbox PokemonTower_2F_Text_RivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_POKEMON_TOWER_RIVAL
+	call_if_eq VAR_STARTER_MON, 3, PokemonTower_2F_EventScript_RivalEevee
 	call_if_eq VAR_STARTER_MON, 2, PokemonTower_2F_EventScript_RivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, PokemonTower_2F_EventScript_RivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, PokemonTower_2F_EventScript_RivalCharmander
@@ -165,3 +166,7 @@ PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts::
 	.string "unmask them.$"
 #endif
 
+
+PokemonTower_2F_EventScript_RivalEevee::
+	trainerbattle_earlyrival TRAINER_RIVAL_POKEMON_TOWER_EEVEE, RIVAL_BATTLE_TUTORIAL, PokemonTower_2F_Text_RivalDefeat, Text_RivalVictory
+	return

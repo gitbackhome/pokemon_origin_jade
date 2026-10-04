@@ -7,6 +7,7 @@ PokemonLeague_ChampionsRoom_Frlg_MapScripts::
 PokemonLeague_ChampionsRoom_OnResume::
 	setvar VAR_0x8004, 4
 	call PokemonLeague_EventScript_DoLightingEffect
+	call_if_eq VAR_STARTER_MON, 3, PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerEevee
 	call_if_eq VAR_STARTER_MON, 2, PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerSquirtle
 	call_if_eq VAR_STARTER_MON, 1, PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerCharmander
@@ -78,6 +79,7 @@ PokemonLeague_ChampionsRoom_EventScript_EnterRoom::
 	call_if_eq VAR_STARTER_MON, 0, PokemonLeague_ChampionsRoom_EventScript_NameBulbasaur
 	call_if_eq VAR_STARTER_MON, 1, PokemonLeague_ChampionsRoom_EventScript_NameSquirtle
 	call_if_eq VAR_STARTER_MON, 2, PokemonLeague_ChampionsRoom_EventScript_NameCharmander
+	call_if_eq VAR_STARTER_MON, 3, PokemonLeague_ChampionsRoom_EventScript_NamePikachu
 	msgbox PokemonLeague_ChampionsRoom_Text_OakCongratulations
 	applymovement LOCALID_CHAMPIONS_ROOM_PROF_OAK, Common_Movement_WalkInPlaceFasterRight
 	applymovement LOCALID_KANTO_CHAMPIONS_ROOM_RIVAL, Common_Movement_WalkInPlaceFasterLeft
@@ -105,12 +107,14 @@ PokemonLeague_ChampionsRoom_EventScript_QuestLogEnd::
 	end
 
 PokemonLeague_ChampionsRoom_EventScript_Battle::
+	call_if_eq VAR_STARTER_MON, 3, PokemonLeague_ChampionsRoom_EventScript_BattleEevee
 	call_if_eq VAR_STARTER_MON, 2, PokemonLeague_ChampionsRoom_EventScript_BattleSquirtle
 	call_if_eq VAR_STARTER_MON, 1, PokemonLeague_ChampionsRoom_EventScript_BattleBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, PokemonLeague_ChampionsRoom_EventScript_BattleCharmander
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_Rematch::
+	call_if_eq VAR_STARTER_MON, 3, PokemonLeague_ChampionsRoom_EventScript_RematchEevee
 	call_if_eq VAR_STARTER_MON, 2, PokemonLeague_ChampionsRoom_EventScript_RematchSquirtle
 	call_if_eq VAR_STARTER_MON, 1, PokemonLeague_ChampionsRoom_EventScript_RematchBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, PokemonLeague_ChampionsRoom_EventScript_RematchCharmander
@@ -443,4 +447,25 @@ PokemonLeague_ChampionsRoom_EventScript_NameSquirtle::
 
 PokemonLeague_ChampionsRoom_EventScript_NameCharmander::
 	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+	return
+
+PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerEevee::
+	compare VAR_STARTER_MON, 3
+	goto_if_eq PokemonLeague_ChampionsRoom_EventScript_StopPlayerEevee
+	return
+
+PokemonLeague_ChampionsRoom_EventScript_StopPlayerEevee::
+	@ Fängt den Trigger ab wie bei den anderen Startern
+	return
+
+PokemonLeague_ChampionsRoom_EventScript_NamePikachu::
+	bufferspeciesname STR_VAR_1, SPECIES_PIKACHU
+	return
+
+PokemonLeague_ChampionsRoom_EventScript_BattleEevee::
+	trainerbattle_no_intro TRAINER_CHAMPION_FIRST_EEVEE, PokemonLeague_ChampionsRoom_Text_Defeat
+	return
+
+PokemonLeague_ChampionsRoom_EventScript_RematchEevee::
+	trainerbattle_no_intro TRAINER_CHAMPION_REMATCH_EEVEE, PokemonLeague_ChampionsRoom_Text_Defeat
 	return

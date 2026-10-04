@@ -49,6 +49,7 @@ CeruleanCity_EventScript_Rival::
 	waitmovement 0
 	msgbox CeruleanCity_Text_RivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_CERULEAN_RIVAL
+	call_if_eq VAR_STARTER_MON, 3, CeruleanCity_EventScript_RivalEevee
 	call_if_eq VAR_STARTER_MON, 2, CeruleanCity_EventScript_RivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, CeruleanCity_EventScript_RivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, CeruleanCity_EventScript_RivalCharmander
@@ -85,6 +86,11 @@ CeruleanCity_EventScript_RivalBulbasaur::
 CeruleanCity_EventScript_RivalCharmander::
 	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_CHARMANDER, CeruleanCity_Text_RivalDefeat
 	return
+
+CeruleanCity_EventScript_RivalEevee::
+	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_EEVEE, CeruleanCity_Text_RivalDefeat
+	return
+
 
 CeruleanCity_EventScript_RivalStartExit::
 	applymovement LOCALID_PLAYER, CeruleanCity_Movement_PlayerWatchRivalExit
